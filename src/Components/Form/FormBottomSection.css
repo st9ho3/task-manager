@@ -1,0 +1,43 @@
+.formTitle {
+    position: absolute;
+    top: 3.5rem;
+    right: 11.5rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+  .bottomMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 11.3rem;
+  }
+  
+  hr {
+    width: 8rem;
+    opacity: 0.4;
+    margin: 0.6rem 0;
+  }
+  
+  .or {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+  
+  .regSignIn {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+  
+  .routeSpan {
+    color: rgb(61, 61, 239);
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .errorMessage {
+    color: red;
+    position: absolute;
+    top: 62%;
+    right: 14%;
+  }
