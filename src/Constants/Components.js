@@ -10,6 +10,7 @@ import Element from "../Components/Form/Element"
 import Form from "../Components/Form/Form"
 import LoginForm from "../Components/Auth/LoginForm"
 import FormBottomSection from "../Components/Form/FormBottomSection"
+import AuthForm from "../Components/Auth/AuthForm"
 
 export {
     Navbar,
@@ -23,5 +24,6 @@ export {
     Element,
     Form,
     LoginForm,
-    FormBottomSection
+    FormBottomSection,
+    AuthForm
 }

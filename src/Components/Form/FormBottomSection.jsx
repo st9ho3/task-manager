@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { contextT } from '../../App';
+import { routeContext } from '../../Context/RouteContext';
+
 
 const FormBottomSection = ({ type, error }) => {
-  const { onFormSwitch } = useContext(contextT);
+  const {state, dispatch} = useContext(routeContext)
 
   return (
     <>
@@ -13,7 +14,7 @@ const FormBottomSection = ({ type, error }) => {
         <hr />
         <p className="regSignIn">
           {type === 'login' ? "Don't you have an account? " : 'Already have an account? '}
-          <span className="routeSpan" onClick={onFormSwitch}>
+          <span className="routeSpan" onClick={() => dispatch({type:'ONFORMSWITCH', payload: type === 'login' ? 'register' : 'login'})}>
             {type === 'login' ? 'Register' : 'Sign in'}
           </span>
         </p>

@@ -60,10 +60,12 @@ export const RegistrationFormData = [
       id:8
     },
     {
-      className: 'terms-container',
-      content: 'Agree to Terms of Service',
-      id:9,
-      onchange: () => {}
+      element: 'input',
+      type: 'checkbox',
+      name: 'agreeWithTermsOfService',
+      id:10,
+      onchange: () => {},
+      checked: false
     },
     {
       element: 'button',
@@ -101,7 +103,8 @@ export const RegistrationFormData = [
       name: 'password',
     },
     {
-      id: 5,
+      id: 6,
+      element:'input',
       className: 'terms-container',
       content: 'Remember me',
       name: 'rememberMe',

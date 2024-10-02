@@ -2,7 +2,7 @@ import React from 'react';
 import { Element } from '../../Constants/Components';
 import FormBottomSection from './FormBottomSection';
 
-const Form = ({ formData, type, error, onSubmit, user }) => {
+const Form = ({ formData, type, error, onSubmit }) => {
   return (
     <div className="formLayout">
       <div className="counterForm">
@@ -10,7 +10,7 @@ const Form = ({ formData, type, error, onSubmit, user }) => {
       </div>
       <form onSubmit={onSubmit} className="registrationForm">
         {formData.map((elem) => (
-          <Element key={elem.id} data={elem} user={user} />
+          <Element key={elem.id} data={elem} />
         ))}
         <button type="submit">{type === 'login' ? 'Login' : 'Register'}</button>
       </form>

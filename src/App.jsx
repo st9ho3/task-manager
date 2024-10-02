@@ -1,30 +1,25 @@
-import React, { createContext, useState } from 'react';
-import {LoginForm, RegistrationForm, Layout} from './Constants/Components'
-
-export const contextT = createContext()
+import React, { useContext } from 'react';
+import { Layout, AuthForm } from './Constants/Components';
+import { routeContext } from './Context/RouteContext';
 
 const App = () => {
-  const [currentForm, setCurrentForm] = useState('login');
-  const onFormSwitch = () => {
-    setCurrentForm( currentForm === 'register' ? 'login' : 'register')
-  }
-  const handleSuccessLogin = () => {
-    setCurrentForm('home')
-  }
+  const { state, dispatch } = useContext(routeContext);
+
   return (
     <div className="app">
-      <contextT.Provider value={{onFormSwitch, handleSuccessLogin}}>
-        {currentForm === 'login' ? (
-          <LoginForm onFormSwitch={() => setCurrentForm('register')} />
-        ) : 
-         currentForm === 'register' ? (
-          <RegistrationForm onFormSwitch={() => setCurrentForm('login')} />
-        ) :
-         currentForm === 'home' ? (
-          <Layout />
-        ) : null}
-      </contextT.Provider>
-      
+      {state.currentForm === 'login' && (
+        <AuthForm 
+          formType='login' 
+          onFormSwitch={() => dispatch({type: 'ONFORMSWITCH', payload: 'register'})} 
+        />
+      )}
+      {state.currentForm === 'register' && (
+        <AuthForm 
+          formType='registration' 
+          onFormSwitch={() => dispatch({type: 'ONFORMSWITCH', payload: 'login'})} 
+        />
+      )}
+      {state.currentForm === 'home' && <Layout />}
     </div>
   );
 };

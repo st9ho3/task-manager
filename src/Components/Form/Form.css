@@ -45,14 +45,17 @@ input {
 input:active {
   border: solid black;
 }
-
-.checkInp {
-  margin: 0;
-  margin-right: 0.8rem;
-  border-radius: 5px;
-  width: 0.9rem;
-  bottom: 0;
+.checkbox {
+  width: 1rem;
+  cursor: pointer;
 }
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: .9rem;
+}
+
 
 .terms-container {
   display: flex;

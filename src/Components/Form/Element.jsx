@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Element = ({ data, user }) => {
+const Element = ({ data }) => {
   return (
-    <div className='element'>
+    <div className={data.type === 'checkbox' ? 'checkboxContainer' : 'element'}>
       {data.element === 'input' && (
         <input
+          className={data.type === 'checkbox' ? 'checkbox' : null}
           type={data.type}
           placeholder={data.placeholder}
           name={data.name}
@@ -15,18 +16,8 @@ const Element = ({ data, user }) => {
       {data.element === 'label' && (
         <label htmlFor={data.htmlFor}>{data.content}</label>
       )}
-      {data.className === 'terms-container' && (
-        <div className="terms-container">
-          <input
-            className='checkInp'
-            type="checkbox"
-            name={data.name}
-            checked={data.value}
-            onChange={data.onChange}
-          />
-          <label htmlFor={data.name}>{data.content}</label>
-        </div>
-      )}
+      {data.type === 'checkbox' && data.name === 'agreeWithTermsOfService' ? <p>Agree with Terms of service</p> : data.type === 'checkbox' && data.name === 'rememberMe' ? <p>Remember me</p> : null }
+      
     </div>
   );
 };

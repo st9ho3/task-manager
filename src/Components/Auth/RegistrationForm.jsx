@@ -3,11 +3,10 @@ import { Form } from '../../Constants/Components';
 import { RegistrationFormData } from '../../Constants/FormData';
 import { auth } from '../../utils/Firebase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { contextT } from '../../App';
-
+import { routeContext } from '../../Context/RouteContext';
 
 const RegistrationForm = () => {
-  const {handleSuccessLogin} = useContext(contextT)
+  const { dispatch } = useContext(routeContext)
   const [error, setError] = useState(false);
   const [formState, setFormState] = useState({
     username: '',
@@ -27,22 +26,22 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    formState.password === formState.confirmPassword ?
-    createUserWithEmailAndPassword(auth, formState.email, formState.password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    handleSuccessLogin()
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  }) :
-    setError(true)
-    
+    if (formState.password === formState.confirmPassword) {
+      createUserWithEmailAndPassword(auth, formState.email, formState.password)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          dispatch({type:'HANDLESUCCESSLOGIN'})
+          console.log(user)
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(true);
+        });
+    } else {
+      setError(true);
+    }
   };
 
   const updatedFormData = RegistrationFormData.map(field => ({
