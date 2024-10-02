@@ -3,7 +3,6 @@ import {LoginForm, RegistrationForm, Layout} from './Constants/Components'
 
 export const contextT = createContext()
 
-
 const App = () => {
   const [currentForm, setCurrentForm] = useState('login');
   const onFormSwitch = () => {

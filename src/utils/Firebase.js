@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC-ubNkqLGgVy2Va5KgNBSAikNFclaUpW8",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "the-notes-app-cfe0c.firebaseapp.com",
   projectId: "the-notes-app-cfe0c",
   storageBucket: "the-notes-app-cfe0c.appspot.com",
@@ -11,5 +11,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-export const auth = getAuth();
+export const auth = getAuth(app);

@@ -11,7 +11,6 @@ import Form from "../Components/Form/Form"
 import LoginForm from "../Components/Auth/LoginForm"
 import FormBottomSection from "../Components/Form/FormBottomSection"
 
-
 export {
     Navbar,
     Layout,
