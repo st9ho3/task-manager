@@ -8,6 +8,7 @@ import './Components/Layout/Header/Header.css';
 import './Components/Form/Element.css';
 import './Components/Form/Form.css';
 import './Components/Form/FormBottomSection.css';
+import './Components/Layout/Main/TaskBoard/TaskBoard.css'
 import RouteContextProvider from './Context/RouteContext.jsx';
 import AuthContextProvider from './Context/AuthContext.jsx';
 

@@ -1,0 +1,10 @@
+.custom-file-upload {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .icon {
+    font-size: 24px; /* Adjust icon size */
+    cursor: pointer;
+  }

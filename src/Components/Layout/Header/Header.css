@@ -2,5 +2,25 @@
     height: 15vh;
     width: 94vw;
     border-bottom: solid rgba(157, 153, 153, 0.238) thin;
-
+}
+.signoutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15rem;
+    
+    border: solid thin rgba(135, 132, 132, 0.215);
+    border-radius: 25px;
+    width: 2.6rem;
+    height: 2.6rem;
+    cursor: pointer;
+    opacity: .9;
+}
+.signoutContainer:hover {
+    opacity: 1;
+    transition: .5s;
+}
+.signoutButton {
+    color: rgb(136, 133, 133);
+    font-size: 1.5rem;
 }

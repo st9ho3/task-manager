@@ -9,6 +9,9 @@ import Element from "../Components/Form/Element"
 import Form from "../Components/Form/Form"
 import FormBottomSection from "../Components/Form/FormBottomSection"
 import AuthForm from "../Components/Auth/AuthForm"
+import SignOutButton from "../Components/Auth/SignOutButton"
+import ProfileButton from "../Components/Auth/ProfileButton"
+import AddProfilePic from "../Components/General/AddProfilePic"
 
 export {
     Navbar,
@@ -21,5 +24,8 @@ export {
     Element,
     Form,
     FormBottomSection,
-    AuthForm
+    AuthForm,
+    SignOutButton,
+    ProfileButton,
+    AddProfilePic
 }
