@@ -1,5 +1,5 @@
 // AuthForm.js
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Form } from '../../Constants/Components';
 import { RegistrationFormData, loginData } from '../../Constants/FormData';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
@@ -19,8 +19,8 @@ const AuthForm = ({ formType }) => {
       name: name,
       value: type === 'checkbox' ? checked : value
     });
-    console.log(`Field ${name} updated:`, checked);};
-    console.log(state.registration)
+  };
+    
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,8 +32,10 @@ const AuthForm = ({ formType }) => {
     try {
       if (formType === 'login') {
         const userCredential = await signInWithEmailAndPassword(auth, formState.email, formState.password);
-        console.log("User logged in:", userCredential.user);
-        dispatch({ type: 'HANDLESUCCESSLOGIN' });
+        authDispatch({type:'SET_CURRENT_USER', payload: userCredential.user })
+        setTimeout(()=>{
+          authDispatch({ type: 'SET_LOADING', payload: true });
+          dispatch({ type: 'HANDLESUCCESSLOGIN', payload: 'home' }),2000})
       } else if (formType === 'registration') {
         if (formState.password !== formState.confirmPassword) {
           throw new Error("Passwords do not match");
@@ -42,7 +44,7 @@ const AuthForm = ({ formType }) => {
           throw new Error("You need to agree with Terms of service");
         }
         const userCredential = await createUserWithEmailAndPassword(auth, formState.email, formState.password);
-        console.log("User registered:", userCredential.user);
+        
         dispatch({ type: 'HANDLESUCCESSLOGIN' });
       }
     } catch (error) {
