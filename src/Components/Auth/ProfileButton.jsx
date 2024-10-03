@@ -27,7 +27,7 @@ const FileInput = () => {
 
   return (
     <div className="custom-file-upload">
-      {/* Hidden file input */}
+      
       <input
         type="file"
         ref={fileInputRef} // Ref for file input
@@ -35,23 +35,20 @@ const FileInput = () => {
         style={{ display: "none" }}
         id="fileInput"
       />
-
-      {/* Icon to trigger the file input */}
-      <IoIosAdd 
-      className="icon"
-      onClick={() => fileInputRef.current.click()} // Trigger the click event on the file input
-      style={{ cursor: "pointer", fontSize: "24px" }} />
-
-      {/* Display file name or a preview */}
-      {fileName && (
+      
         <div className="profileIcon">
+          <IoIosAdd 
+            className="addPicIcon"
+            onClick={() => fileInputRef.current.click()} // Trigger the click event on the file input
+            style={{ cursor: "pointer", fontSize: "24px" }} />
           
-          {fileInputRef.current.files[0]?.type.startsWith("image/") && (
-            <img src={fileURLRef.current} alt="Preview" style={{width: '45px',height: '45px'
-            }} />
-          )}
+              {fileName && fileInputRef.current.files[0]?.type.startsWith("image/") ? (
+                <img className="profileCanvas" src={fileURLRef.current} alt="Prev" style={{width: '45px',height: '45px'
+                }}/>) :
+                <img className="profileCanvas" src={fileURLRef.current} alt="Prev" style={{width: '45px',height: '45px'}} />
+            }
         </div>
-      )}
+      
     </div>
   );
 };
