@@ -1,6 +1,79 @@
 .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 6vw;
+    min-width: 3.2rem;
     height: 100vh;
     border-radius: 10px;
     background-color: white;
+    border: solid rgba(157, 153, 153, 0.238) thin;
 }
+.signoutButton {
+    color: rgb(136, 133, 133);
+    font-size: 1.5rem;
+}
+.signoutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    border: solid thin rgba(135, 132, 132, 0.215);
+    border-radius: 25px;
+    width: 2.8rem;
+    height: 2.8rem;
+    cursor: pointer;
+    opacity: .8;
+}
+.signoutContainer:hover {
+    opacity: 1;
+    transition: .5s;
+}
+.navCockpit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9rem;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: white;
+    gap: 1.5rem;
+}
+.button {
+    font-size: 1.9rem;
+    cursor: pointer;
+    transition: .3s;
+}
+.ring.home {
+    position: absolute;
+    top: -0.2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 10px;
+    border: solid thin rgba(120, 113, 87, 0.258);
+    transition: .2s;
+}
+.ring.create {
+    position: absolute;
+    top: 3.2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 10px;
+    border: solid thin rgba(154, 147, 147, 0.678);
+    transition: .2s;
+}
+.ring.not {
+    position: absolute;
+    top: 6.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 10px;
+    border: solid thin rgba(154, 147, 147, 0.678);
+    transition: .2s;
+}
+.active {
+    color: rgba(96, 96, 50, 0.648);
+}
+

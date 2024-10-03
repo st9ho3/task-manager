@@ -6,7 +6,7 @@ const Form = ({ formData, type, error, onSubmit }) => {
   return (
     <div className="formLayout">
       <div className="counterForm">
-        <img src="image-init.jpg" alt="Registration-Page-image" />
+        <img src="image-init.png" alt="Registration-Page-image" />
       </div>
       <form onSubmit={onSubmit} className="registrationForm">
         {formData.map((elem) => (

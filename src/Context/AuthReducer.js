@@ -26,9 +26,10 @@ export const authReducer = (state, action) => {
     case 'RESET_FORM':
       return {
         ...state,
-        login: action.initialState,
+        login: action.initialState.login,
+        registration: action.initialState.registration,
         error:false,
-        loading:action.initialState
+        loading:false
       }
     default:
       return state

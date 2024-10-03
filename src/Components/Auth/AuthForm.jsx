@@ -6,6 +6,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { auth } from '../../utils/Firebase';
 import { routeContext } from '../../Context/RouteContext';
 import { authContext } from '../../Context/AuthContext';
+import { doc, serverTimestamp, setDoc, Timestamp } from "firebase/firestore"; 
+import {db} from '../../utils/Firebase'
 
 const AuthForm = ({ formType }) => {
   const { dispatch } = useContext(routeContext);
@@ -44,6 +46,11 @@ const AuthForm = ({ formType }) => {
           throw new Error("You need to agree with Terms of service");
         }
         const userCredential = await createUserWithEmailAndPassword(auth, formState.email, formState.password);
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+         ...state.registration,
+         time: serverTimestamp(),
+         rememberMe: false
+        });
         
         dispatch({ type: 'HANDLESUCCESSLOGIN' });
       }

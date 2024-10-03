@@ -1,6 +1,6 @@
 .header {
     height: 15vh;
     width: 94vw;
-    border: solid thin black;
+    border-bottom: solid rgba(157, 153, 153, 0.238) thin;
 
 }
