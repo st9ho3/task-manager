@@ -27,6 +27,5 @@ export {
     AuthForm,
     SignOutButton,
     ProfileButton,
-    PopUpWindow
-   
+    PopUpWindow 
 }

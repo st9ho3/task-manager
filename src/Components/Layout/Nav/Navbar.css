@@ -54,7 +54,7 @@
     transition: .2s;
 }
 .active {
-    color: rgba(96, 96, 50, 0.648);
+    color: rgba(163, 151, 150, 0.648);
 }
 .profileIcon {
     position: relative;

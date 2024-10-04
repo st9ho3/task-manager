@@ -1,3 +1,8 @@
+.popUp {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+}
 .popupWindow {
     position: relative;
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
@@ -99,3 +104,60 @@
     height: 3.8rem;
     opacity: 0;
   }
+  .signOutPopUp {
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: white;
+    margin: 2rem;
+    width: 19rem;
+    height: 8rem;
+    border: solid thin rgb(240, 239, 239);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .2s;
+  }
+  .popTitleSignOut {
+    padding: 1rem;
+    padding-bottom: .5rem;
+    font-size: 1.2rem;
+    transition: .2s;
+  }
+  
+  .poptextSignOut {
+    font-size: 0.7rem;
+    color: rgb(105, 112, 122);
+    transition: .2s;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .Button {
+    font-size: .8rem;
+    border: solid thin rgb(240, 239, 239);
+    width: 6rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .4s;
+  }
+  .Button.A:hover{
+    background-color: rgb(237, 237, 207);
+  }
+  .Button.B:hover{
+    background-color: rgb(245, 186, 178);
+  }
+ 
+  .popUpBodySignOut{
+    
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;}
