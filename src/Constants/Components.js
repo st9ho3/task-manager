@@ -11,7 +11,7 @@ import FormBottomSection from "../Components/Form/FormBottomSection"
 import AuthForm from "../Components/Auth/AuthForm"
 import SignOutButton from "../Components/Auth/SignOutButton"
 import ProfileButton from "../Components/Auth/ProfileButton"
-import AddProfilePic from "../Components/General/AddProfilePic"
+import PopUpWindow from "../Components/General/PopUpWindow"
 
 export {
     Navbar,
@@ -27,5 +27,6 @@ export {
     AuthForm,
     SignOutButton,
     ProfileButton,
-    AddProfilePic
+    PopUpWindow
+   
 }

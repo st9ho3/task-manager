@@ -9,6 +9,7 @@ import './Components/Form/Element.css';
 import './Components/Form/Form.css';
 import './Components/Form/FormBottomSection.css';
 import './Components/Layout/Main/TaskBoard/TaskBoard.css'
+import './Components/General/PopUpWindow.css'
 import RouteContextProvider from './Context/RouteContext.jsx';
 import AuthContextProvider from './Context/AuthContext.jsx';
 import FileUploadProvider from './Context/FileUploadContext.jsx';

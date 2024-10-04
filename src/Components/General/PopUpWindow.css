@@ -1,0 +1,101 @@
+.popupWindow {
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: white;
+    margin: 2rem;
+    width: 19rem;
+    height: 5rem;
+    border: solid thin rgb(240, 239, 239);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .2s;
+  }
+  
+  .popUpIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.8rem;
+    height: 3.8rem;
+    margin-left: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 10px;
+  }
+  
+  .popUpImg {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+  
+  .popUpBody {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    width: 11rem;
+    height: fit-content;
+    flex-direction: column;
+    margin: 0.5rem;
+  }
+  
+  .popTitle {
+    font-size: 0.9rem;
+    transition: .2s;
+  }
+  
+  .poptext {
+    font-size: 0.7rem;
+    color: rgb(105, 112, 122);
+    transition: .2s;
+  }
+  
+  .closeButton {
+    background-color: white;
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: rgba(105, 112, 122, 0.493);
+    transition: 0.5s;
+    opacity: 0;
+  }
+  
+  .popupWindow:hover .closeButton {
+    opacity: 1;
+  }
+  
+  .popupWindowClose {
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: white;
+    margin: 2rem;
+    width: 17rem;
+    height: 0;
+    border: solid thin rgb(240, 239, 239);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 0;
+    overflow-y: hidden;
+    transition: 0.3s;
+  }
+  
+  .poptextClose {
+    font-size: 0.7rem;
+    color: rgb(105, 112, 122);
+    opacity: 0;
+  }
+  
+  .popTitleClose {
+    font-size: 0.9rem;
+    opacity: 0;
+  }
+  
+  .popUpImgClose {
+    width: 3.8rem;
+    height: 3.8rem;
+    opacity: 0;
+  }
