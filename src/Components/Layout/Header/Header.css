@@ -1,4 +1,6 @@
 .header {
+    display: flex;
+    justify-content: flex-end;
     height: 15vh;
     width: 94vw;
     border-bottom: solid rgba(157, 153, 153, 0.238) thin;
@@ -23,4 +25,8 @@
 .signoutButton {
     color: rgb(136, 133, 133);
     font-size: 1.5rem;
+}
+.welcome {
+    margin-top: .5rem;
+    margin-right: 1rem;
 }

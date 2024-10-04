@@ -1,54 +1,79 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useContext, useRef } from "react";
 import { IoIosAdd } from "react-icons/io";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../../utils/Firebase";
+import { doc, updateDoc } from "firebase/firestore";
+import { authContext } from "../../Context/AuthContext";
+import { fileUploadContext } from "../../Context/FileUploadContext"; // Import the file upload context
 
 const FileInput = () => {
-  const fileInputRef = useRef(null); // Ref to access the file input element
-  const fileURLRef = useRef(null); // Ref to store the file URL
-  const [fileName, setFileName] = useState(""); // Store file name for display
+  const { state } = useContext(authContext); // Get auth context
+  const { fileState, uploadDispatch } = useContext(fileUploadContext); // Get file upload context
 
-  const handleFileChange = () => {
-    const selectedFile = fileInputRef.current.files[0]; // Get the selected file from the input
+  const fileInputRef = useRef(null);
 
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
     if (selectedFile) {
-      // Store the file URL in the ref
-      fileURLRef.current = URL.createObjectURL(selectedFile);
-      setFileName(selectedFile.name); // Store the file name for display
+      uploadDispatch({ type: "SET_FILE_NAME", payload: selectedFile.name });
+      uploadDispatch({ type: "SET_FILE_URL", payload: selectedFile });
+      uploadFile(selectedFile);
     }
   };
 
-  // Clean up the file URL when component unmounts
-  useEffect(() => {
-    return () => {
-      if (fileURLRef.current) {
-        URL.revokeObjectURL(fileURLRef.current); // Revoke URL when component unmounts
+  const updateUser = async (imageUrl) => {
+    const userDocRef = doc(db, "users", state.currentUser.uid);
+    await updateDoc(userDocRef, { img: imageUrl });
+  };
+
+  const uploadFile = (file) => {
+    const storageRef = ref(storage, `images/${new Date().getTime()}_${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        uploadDispatch({ type: "SET_UPLOAD_PROGRESS", payload: progress });
+      },
+      (error) => {
+        console.error(error);
+        uploadDispatch({ type: "SET_UPLOAD_ERROR" });
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          updateUser(downloadURL);
+        });
       }
-    };
-  }, []);
+    );
+  };
 
   return (
     <div className="custom-file-upload">
-      
       <input
         type="file"
-        ref={fileInputRef} // Ref for file input
-        onChange={handleFileChange} // Trigger function when file is selected
+        ref={fileInputRef}
+        onChange={handleFileChange}
         style={{ display: "none" }}
         id="fileInput"
       />
-      
-        <div className="profileIcon">
-          <IoIosAdd 
-            className="addPicIcon"
-            onClick={() => fileInputRef.current.click()} // Trigger the click event on the file input
-            style={{ cursor: "pointer", fontSize: "24px" }} />
-          
-              {fileName && fileInputRef.current.files[0]?.type.startsWith("image/") ? (
-                <img className="profileCanvas" src={fileURLRef.current} alt="Prev" style={{width: '45px',height: '45px'
-                }}/>) :
-                <img className="profileCanvas" src={fileURLRef.current} alt="Prev" style={{width: '45px',height: '45px'}} />
-            }
-        </div>
-      
+
+      <div className="profileIcon">
+        <IoIosAdd
+          className="addPicIcon"
+          onClick={() => fileInputRef.current.click()}
+          style={{ cursor: "pointer", fontSize: "24px" }}
+        />
+
+        {state.userDetails && (
+          <img
+            className="profileCanvas"
+            src={fileState.fileURL ? fileState.fileURL : state.userDetails.img}
+            alt="Profile"
+            style={{ width: "45px", height: "45px" }}
+          />
+        )}
+      </div>
     </div>
   );
 };

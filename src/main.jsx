@@ -11,13 +11,16 @@ import './Components/Form/FormBottomSection.css';
 import './Components/Layout/Main/TaskBoard/TaskBoard.css'
 import RouteContextProvider from './Context/RouteContext.jsx';
 import AuthContextProvider from './Context/AuthContext.jsx';
+import FileUploadProvider from './Context/FileUploadContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthContextProvider>
+    <FileUploadProvider>
       <RouteContextProvider>
-        <App />
+        <AuthContextProvider> 
+          <App />
+        </AuthContextProvider>
       </RouteContextProvider>
-    </AuthContextProvider>
+    </FileUploadProvider>
   </StrictMode>,
 );

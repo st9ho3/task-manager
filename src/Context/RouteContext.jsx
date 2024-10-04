@@ -12,7 +12,7 @@ const RouteContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(routeReducer, INITIAL_STATE);
   
   return (
-    <routeContext.Provider value={{ state, dispatch }}>
+    <routeContext.Provider value={{ routeState:state, dispatch }}>
       {children}
     </routeContext.Provider>
   );

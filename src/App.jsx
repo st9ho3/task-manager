@@ -4,24 +4,24 @@ import { routeContext } from './Context/RouteContext';
 import { authContext } from './Context/AuthContext';
 
 const App = () => {
-  const { state, dispatch } = useContext(routeContext);
+  const { routeState, dispatch } = useContext(routeContext);
   const {currentUser} = useContext(authContext)
 
   return (
     <div className="app">
-      {state.currentForm === 'login' && !currentUser && (
+      {routeState.currentForm === 'login' && !currentUser && (
         <AuthForm 
           formType='login' 
           onFormSwitch={() => dispatch({type: 'ONFORMSWITCH', payload: 'register'})} 
         />
       )}
-      {state.currentForm === 'register' && !currentUser && (
+      {routeState.currentForm === 'register' && !currentUser && (
         <AuthForm 
           formType='registration' 
           onFormSwitch={() => dispatch({type: 'ONFORMSWITCH', payload: 'login'})} 
         />
       )}
-      {state.currentForm === 'home' && <Layout /> || currentUser && <Layout />}
+      {routeState.currentForm === 'home' && <Layout /> || currentUser && <Layout />}
     </div>
   );
 };
