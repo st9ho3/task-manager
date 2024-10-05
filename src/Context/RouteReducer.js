@@ -6,7 +6,7 @@ export const routeReducer = (state, action) => {
       }
     case 'HANDLESUCCESSLOGIN':
       return {
-        currentForm: 'home'
+        currentForm: action.payload
       }
     default:
       return state

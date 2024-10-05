@@ -51,8 +51,8 @@ const AuthForm = ({ formType }) => {
          time: serverTimestamp(),
          rememberMe: false
         });
-        
-        dispatch({ type: 'HANDLESUCCESSLOGIN' });
+        authDispatch({type:'SET_CURRENT_USER', payload: userCredential.user })
+        dispatch({ type: 'HANDLESUCCESSLOGIN', payload: 'home' });
       }
     } catch (error) {
       console.error("Authentication error:", error);

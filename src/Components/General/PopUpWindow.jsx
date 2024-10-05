@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { fileUploadContext } from '../../Context/FileUploadContext';
 
-const PopUpWindow = ({ type, handleSignOut }) => {
-  const [toggle, setToggle] = useState(true);
+const PopUpWindow = ({ type, action }) => {
+  const [toggle, setToggle] = useState(false);
   const { fileState } = useContext(fileUploadContext);
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const PopUpWindow = ({ type, handleSignOut }) => {
   };
 
   return (
-    <div className={type === 'popup' ? 'popUp' : 'signOutPopUp'}>
-      <div className={toggle ? (type === 'popup' ? 'popupWindow' : 'signOutWindow') : 'popupWindowClose'}>
+    <div className={type === 'popup' ? 'popUp' : 'popUpSignOut'}>
+      <div className={toggle ? (type === 'popup' ? 'popupWindow' : 'popupWindowSignOut') : (type === 'popup' ? 'popupWindowClose' : 'popupWindowSignOutClose')}>
         {type === 'popup' ? (
           <>
             <div className="popUpIcon">
@@ -39,10 +39,10 @@ const PopUpWindow = ({ type, handleSignOut }) => {
         ) : (
           <>
             <div className="popUpBodySignOut">
-              <p className='popTitleSignOut'>Are you sure you want to sign out?</p>
-              <div className="buttons">
-                <div className="Button A" onClick={handleSignOut}>Yes, sign out</div>
-                <div className="Button B" onClick={handleClose}>Cancel</div>
+              <p className={toggle ? 'popTitleSignOut' : 'popTitleSignOutClose' }>Are you sure you want to sign out?</p>
+              <div className="buttonsSignOut">
+                <div className="Button A_SignOut" onClick={action}>Yes, sign out</div>
+                <div className="Button B_SignOut" onClick={handleClose}>Cancel</div>
               </div>
             </div>
           </>
