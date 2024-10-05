@@ -8,6 +8,7 @@ const TaskBoard = () => {
   return (
     <div>
       <PopUpWindow type='popup' />
+      <PopUpWindow type='popUp' />
     </div>
   );
 };

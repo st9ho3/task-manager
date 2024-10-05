@@ -164,7 +164,7 @@
       align-items: center;
       opacity: 0;
       overflow-y: hidden;
-      transition: 0.3s;
+      transition: 0.2s;
     }
     
     .popTitleSignOutClose {
@@ -180,17 +180,33 @@
       justify-content: center;
       align-items: center;
       width: 5.5rem;
-      height: 1.5rem;
+      height: 1.9rem;
       border-radius: 25px;
       border: solid thin rgb(240, 239, 239);
       font-size: .7rem;
       transition: .4s;
       cursor: pointer;
+      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     }
-    .A_SignOut:hover{
-      background-color: rgb(240, 239, 239);
+    .A_SignOut{
+      background-color: rgb(255, 80, 29);
+      color: white;
     }
     .B_SignOut:hover{
-      background-color: rgb(241, 200, 200);
+      color:rgb(148, 146, 146);
+    }
+    .ButtonClose {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5.5rem;
+      height: 0;
+      border-radius: 25px;
+      border: solid thin rgb(240, 239, 239);
+      font-size: .7rem;
+      transition: .2s;
+      cursor: pointer;
+      opacity: o;
+      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     }
     

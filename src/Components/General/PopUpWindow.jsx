@@ -41,8 +41,8 @@ const PopUpWindow = ({ type, action }) => {
             <div className="popUpBodySignOut">
               <p className={toggle ? 'popTitleSignOut' : 'popTitleSignOutClose' }>Are you sure you want to sign out?</p>
               <div className="buttonsSignOut">
-                <div className="Button A_SignOut" onClick={action}>Yes, sign out</div>
-                <div className="Button B_SignOut" onClick={handleClose}>Cancel</div>
+                <div className={toggle ? "Button A_SignOut" : "ButtonClose"} onClick={action}>Yes, sign out</div>
+                <div className={toggle ? "Button B_SignOut" : "ButtonClose"} onClick={handleClose}>Cancel</div>
               </div>
             </div>
           </>
