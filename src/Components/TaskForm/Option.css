@@ -1,0 +1,27 @@
+.option {
+    position: relative;
+    display: flex;
+    width: 90%;
+    height: 1.5rem;
+    font-size: .85rem;
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+.option:hover {
+    background-color: rgb(249, 249, 249);
+}
+
+.optionCheck {
+    position: absolute;
+    font-size: .9rem;
+    left:.5rem;
+}
+.optionImg {
+    right: .5rem;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}

@@ -5,12 +5,14 @@
     border-radius: 15px;
     background-color: white;
     margin: 2rem;
-    width: 12rem;
-    height: 5rem;
+    width: 11.5rem;
+    height: 6rem;
     border: solid thin rgb(240, 239, 239);
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
     transition: .2s;
     align-items: center;
     z-index: 15;
+    overflow: hidden;
     }

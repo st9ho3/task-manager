@@ -19,6 +19,7 @@ import './Components/Layout/Header/HeaderBottom.css'
 import './Components/TaskForm/TaskForm.css'
 import './Components/TaskForm/TaskOption.css'
 import './Components/TaskForm/TaskOptions.css'
+import './Components/TaskForm/Option.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

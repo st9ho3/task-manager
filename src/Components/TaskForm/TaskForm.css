@@ -30,7 +30,7 @@
     color: black;
 }
 .taskInput::placeholder{
-    color: black;
+    color: rgb(97, 97, 97);
 }
 .taskInput:focus {
     outline: none;
@@ -42,7 +42,7 @@
 }
 .taskInput.desc::placeholder {
     
-    color: rgb(156, 153, 153);
+    color: rgb(173, 173, 173);
 }
 .taskOptions {
     border-radius: 15px;
