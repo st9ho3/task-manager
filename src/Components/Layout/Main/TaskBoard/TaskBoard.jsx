@@ -4,13 +4,13 @@ import { signOut } from 'firebase/auth';
 import { authContext, INITIAL_STATE } from '../../../../Context/AuthContext';
 import { routeContext } from '../../../../Context/RouteContext';
 import { fileUploadContext } from '../../../../Context/FileUploadContext';
-import PopUpWindow from '../../../General/PopUpWindow';
+import {TaskForm, PopUpWindow} from '../../../../Constants/Components'
 import { eventContext } from '../../../../Context/EventContext';
 
 const TaskBoard = () => {
   const { authDispatch } = useContext(authContext);
   const { uploadDispatch } = useContext(fileUploadContext);
-  const { dispatch } = useContext(routeContext);
+  const { routeState,dispatch } = useContext(routeContext);
   const { eventDispatch } = useContext(eventContext);
 
   const SignOut = () => {
@@ -34,6 +34,7 @@ const TaskBoard = () => {
   return (
     <div>
       <PopUpWindow type='signout' action={SignOut} />
+      {routeState.currentForm === 'taskForm' && <TaskForm />}
     </div>
   );
 };

@@ -21,7 +21,7 @@ const FileInput = () => {
       uploadDispatch({ type: "SET_FILE_URL", payload: selectedFile });
       setTimeout(() => {
         eventDispatch({type: "SHOW_MODAL", name: 'notification'})
-      },2000)
+      },800)
       setTimeout(() => {
         eventDispatch({type: "HIDE_MODAL", name: 'notification'})
       },5000)

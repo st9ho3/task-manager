@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Element = ({ data }) => {
+const Element = ({ data,type }) => {
   return (
     <div className={data.type === 'checkbox' ? 'checkboxContainer' : 'element'}>
       {data.element === 'input' && (
         <input
-          className={data.type === 'checkbox' ? 'checkbox' : null}
+          className={data.type === 'checkbox' ? 'checkbox' : type === 'auth' ? 'inputText' : type === 'task' ? 'taskInput' : null}
           type={data.type}
           placeholder={data.placeholder}
           name={data.name}

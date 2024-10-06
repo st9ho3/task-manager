@@ -1,6 +1,7 @@
 export const INITIAL_STATE = {
     notification: false,
-    signOutRequest:false
+    signOutRequest:false,
+    taskOption:''
 }
 export const eventReducer = (state, action) => {
     switch (action.type) {
@@ -17,6 +18,11 @@ export const eventReducer = (state, action) => {
         case 'RESET_FORM':
             return {
                 state:INITIAL_STATE
+            }
+        case 'SET_TASK':
+            return {
+                ...state,
+                taskOption: action.payload
             }
         default:
             return state

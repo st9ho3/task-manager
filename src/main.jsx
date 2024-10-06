@@ -14,6 +14,11 @@ import RouteContextProvider from './Context/RouteContext.jsx';
 import AuthContextProvider from './Context/AuthContext.jsx';
 import FileUploadProvider from './Context/FileUploadContext.jsx';
 import EventProvider from './Context/EventContext.jsx';
+import './Components/Layout/Header/HeaderTop.css'
+import './Components/Layout/Header/HeaderBottom.css'
+import './Components/TaskForm/TaskForm.css'
+import './Components/TaskForm/TaskOption.css'
+import './Components/TaskForm/TaskOptions.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

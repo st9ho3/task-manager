@@ -1,0 +1,51 @@
+.taskOption {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+    background-color: rgb(253, 253, 253);
+    
+
+}
+.optionTitle {
+    font-size: .9rem;
+    display: flex;
+    margin-left: .5rem;
+    align-items: center;
+    color: rgb(122, 120, 120); ;
+}
+.optionArrows {
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(246, 246, 246);
+    width: 1rem;
+    height: 1rem;
+    overflow: hidden;
+    transition: .2s;
+}
+.arrowUp {
+    margin-bottom: -.15rem;
+    font-size: 1.4rem;
+    color: rgb(156, 154, 154);
+}
+.arrowDown {
+    margin-top: -.15rem ;
+    font-size: 1.4rem;
+    color: rgb(156, 154, 154);
+}
+.taskOption:hover {
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+.taskOption:hover
+.optionArrows {
+    background-color: white;
+}

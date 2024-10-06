@@ -12,6 +12,10 @@ import AuthForm from "../Components/Auth/AuthForm"
 import SignOutButton from "../Components/Auth/SignOutButton"
 import ProfileButton from "../Components/Auth/ProfileButton"
 import PopUpWindow from "../Components/General/PopUpWindow"
+import HeaderTop from "../Components/Layout/Header/HeaderTop"
+import HeaderBottom from "../Components/Layout/Header/HeaderBottom"
+import TaskOption from "../Components/TaskForm/TaskOption"
+import TaskOptions from "../Components/TaskForm/TaskOptions"
 
 export {
     Navbar,
@@ -27,5 +31,9 @@ export {
     AuthForm,
     SignOutButton,
     ProfileButton,
-    PopUpWindow 
+    PopUpWindow,
+    HeaderTop,
+    HeaderBottom,
+    TaskOption,
+    TaskOptions
 }

@@ -10,7 +10,7 @@ const Form = ({ formData, type, error, onSubmit }) => {
       </div>
       <form onSubmit={onSubmit} className="registrationForm">
         {formData.map((elem) => (
-          <Element key={elem.id} data={elem} />
+          <Element key={elem.id} data={elem} type='auth' />
         ))}
         <button type="submit">{type === 'login' ? 'Login' : 'Register'}</button>
       </form>

@@ -6,9 +6,9 @@
     width: 6vw;
     min-width: 3.2rem;
     height: 100vh;
-    border-radius: 10px;
+    
     background-color: white;
-    border: solid rgba(157, 153, 153, 0.238) thin;
+    border-right: solid rgba(157, 153, 153, 0.238) thin;
 }
 .navCockpit {
     position: relative;

@@ -1,0 +1,5 @@
+.headerBottom {
+    height: 2rem;
+    display: flex;
+    flex-grow: 1;
+}

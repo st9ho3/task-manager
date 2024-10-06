@@ -8,7 +8,10 @@ const SignOutButton = () => {
   return (
     <div
       className="signoutContainer"
-      onClick={() => eventDispatch({ type: 'SHOW_MODAL', name: 'signOutRequest' })}
+      onClick={() => {
+        eventDispatch({ type: 'SHOW_MODAL', name: 'signOutRequest' })
+        
+    }}
     >
       <GoSignOut className="signoutButton" />
     </div>

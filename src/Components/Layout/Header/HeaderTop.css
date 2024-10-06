@@ -1,0 +1,40 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: -.5rem;
+    /* border: solid thin black; */
+    
+}
+.welcome {
+   font-size: 1.2rem;
+   font-weight: 500;
+}
+.NotificationIcon{
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.434);
+}
+.searchBarContainer {
+display: flex;
+align-items: center;
+border-bottom: rgba(157, 153, 153, 0.238) solid thin;
+
+}
+.searchBarIcon{
+    font-size: 1.7rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+.searchBar{
+    margin: 0;
+    border: none;
+    
+}
+.searchBar:focus{
+    margin: 0;
+    outline: none;
+}
