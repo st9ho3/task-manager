@@ -5,28 +5,41 @@
     width: 94vw;
     border-bottom: solid rgba(157, 153, 153, 0.238) thin;
 }
-.signoutContainer{
+.top{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
-    margin-top: 15rem;
+    flex-grow: 1;
+    height: 1.5rem;
+    padding: 1.5rem;
     
-    border: solid thin rgba(135, 132, 132, 0.215);
-    border-radius: 25px;
-    width: 2.6rem;
-    height: 2.6rem;
-    cursor: pointer;
-    opacity: .9;
-}
-.signoutContainer:hover {
-    opacity: 1;
-    transition: .5s;
-}
-.signoutButton {
-    color: rgb(136, 133, 133);
-    font-size: 1.5rem;
 }
 .welcome {
-    margin-top: .5rem;
-    margin-right: 1rem;
+   font-size: 1.2rem;
+   font-weight: 500;
+}
+.NotificationIcon{
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.434);
+}
+.searchBarContainer {
+display: flex;
+align-items: center;
+border-bottom: rgba(157, 153, 153, 0.238) solid thin;
+
+}
+.searchBarIcon{
+    font-size: 1.7rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+.searchBar{
+    margin: 0;
+    border: none;
+    
+}
+.searchBar:focus{
+    margin: 0;
+    outline: none;
 }

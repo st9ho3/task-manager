@@ -1,57 +1,55 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { fileUploadContext } from '../../Context/FileUploadContext';
+import { eventContext } from '../../Context/EventContext';
+import { FaArrowRight } from "react-icons/fa";
+
+
 
 const PopUpWindow = ({ type, action }) => {
-  const [toggle, setToggle] = useState(false);
   const { fileState } = useContext(fileUploadContext);
+  const { eventState, eventDispatch } = useContext(eventContext);
 
-  useEffect(() => {
-    if (type === 'popup' && fileState.fileURL) {
-      setTimeout(() => setToggle(true), 5000);
-      setTimeout(() => setToggle(false), 14000);
-    }
-  }, [fileState.fileURL, type]);
+  // Compute the classes dynamically based on the toggle and eventState
 
-  const handleClose = () => {
-    setToggle(false);
-  };
 
   return (
-    <div className={type === 'popup' ? 'popUp' : 'popUpSignOut'}>
-      <div className={toggle ? (type === 'popup' ? 'popupWindow' : 'popupWindowSignOut') : (type === 'popup' ? 'popupWindowClose' : 'popupWindowSignOutClose')}>
-        {type === 'popup' ? (
-          <>
-            <div className="popUpIcon">
-              <img
-                className={toggle ? 'popUpImg' : 'popUpImgClose'}
-                src={fileState.fileURL}
-                alt="popup-icon"
-              />
-            </div>
-            <div className="popUpBody">
-              <p className={toggle ? 'popTitle' : 'popTitleClose'}>New Profile Photo</p>
-              <p className={toggle ? 'poptext' : 'poptextClose'}>
-                Your new photo is great! Keep it up... Great to see you active.
-              </p>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="popUpBodySignOut">
-              <p className={toggle ? 'popTitleSignOut' : 'popTitleSignOutClose' }>Are you sure you want to sign out?</p>
-              <div className="buttonsSignOut">
-                <div className={toggle ? "Button A_SignOut" : "ButtonClose"} onClick={action}>Yes, sign out</div>
-                <div className={toggle ? "Button B_SignOut" : "ButtonClose"} onClick={handleClose}>Cancel</div>
-              </div>
-            </div>
-          </>
-        )}
-        {type === 'popup' && (
-          <IoIosCloseCircleOutline onClick={handleClose} className="closeButton" />
-        )}
+    <div>
+    {eventState.notification && (
+      <div className="popupWindow">
+        <div className="popUpIcon">
+          <img className="popUpImg" src={fileState.fileURL} alt="notification-icon" />
+        </div>
+        <div className="popUpBody">
+          <div className="popUpTitle">
+            Notification
+          </div>
+          <div className="popUptext">
+            Congratulations! Your new profile picture is great!
+          </div>
+        </div>
+        <IoIosCloseCircleOutline className="closeButton" onClick={() => eventDispatch({ type: 'HIDE_MODAL', name: 'notification' })} />
       </div>
-    </div>
+    )}
+  
+    {eventState.signOutRequest && (
+      <div className="popupWindow signout">
+        <div className="popUpBody signout" >
+          <div className="popUpTitle signout">
+            Are you sure you want to sign out?
+          </div>
+        </div>
+        <div className="Buttons">
+          <div className='Button A' onClick={action}>
+            Sign out
+            <FaArrowRight className='signoutArrow' />
+          </div>
+          <div className='Button B' onClick={() => eventDispatch({ type: 'HIDE_MODAL', name: 'signOutRequest' })}>Cancel</div>
+        </div>
+      </div>
+    )}
+  </div>
+   
   );
 };
 

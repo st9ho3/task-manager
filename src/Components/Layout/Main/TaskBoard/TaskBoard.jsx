@@ -1,14 +1,39 @@
-import React from 'react';
-import {PopUpWindow} from '../../../../Constants/Components'
+import React, { useContext, useEffect } from 'react';
+import { auth } from '../../../../utils/Firebase';
+import { signOut } from 'firebase/auth';
+import { authContext, INITIAL_STATE } from '../../../../Context/AuthContext';
+import { routeContext } from '../../../../Context/RouteContext';
+import { fileUploadContext } from '../../../../Context/FileUploadContext';
+import PopUpWindow from '../../../General/PopUpWindow';
+import { eventContext } from '../../../../Context/EventContext';
 
 const TaskBoard = () => {
+  const { authDispatch } = useContext(authContext);
+  const { uploadDispatch } = useContext(fileUploadContext);
+  const { dispatch } = useContext(routeContext);
+  const { eventDispatch } = useContext(eventContext);
+
+  const SignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log('signed out')
+        authDispatch({ type: 'SET_CURRENT_USER', payload: auth.currentUser });
+        uploadDispatch({ type: 'RESET_FILE_STATE' });
+        setTimeout(() => {
+          dispatch({ type: 'ONFORMSWITCH', payload: 'login' });
+          authDispatch({ type: 'RESET_FORM', initialState: INITIAL_STATE });
+        }, 300);
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+    eventDispatch({ type: 'RESET_FORM' });
+  };
   
- 
 
   return (
     <div>
-      <PopUpWindow type='popup' />
-      <PopUpWindow type='popUp' />
+      <PopUpWindow type='signout' action={SignOut} />
     </div>
   );
 };

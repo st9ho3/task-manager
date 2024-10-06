@@ -13,15 +13,18 @@ import './Components/General/PopUpWindow.css'
 import RouteContextProvider from './Context/RouteContext.jsx';
 import AuthContextProvider from './Context/AuthContext.jsx';
 import FileUploadProvider from './Context/FileUploadContext.jsx';
+import EventProvider from './Context/EventContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FileUploadProvider>
-      <RouteContextProvider>
-        <AuthContextProvider> 
-          <App />
-        </AuthContextProvider>
-      </RouteContextProvider>
-    </FileUploadProvider>
+    <EventProvider>
+      <FileUploadProvider>
+        <RouteContextProvider>
+          <AuthContextProvider> 
+            <App />
+          </AuthContextProvider>
+        </RouteContextProvider>
+      </FileUploadProvider>
+    </EventProvider>
   </StrictMode>,
 );

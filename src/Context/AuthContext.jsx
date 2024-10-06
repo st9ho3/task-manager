@@ -45,7 +45,7 @@ const AuthContextProvider = ({ children }) => {
       if (docSnap.exists()) {
         // Update authentication state with user details
         authDispatch({ type: 'SET_USER_DETAILS', payload: docSnap.data() });
-        console.log(docSnap.data());
+        
       } else {
         // Handle case where user document does not exist
         console.log("No such document!");

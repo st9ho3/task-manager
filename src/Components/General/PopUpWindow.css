@@ -1,63 +1,88 @@
 
 /* PopUp window Notification */
 
-.popUp {
-  position: absolute;
-  top: 6rem;
-  right: 0;
-}
+
 .popupWindow {
-    position: relative;
+    position: absolute;
+    top:5rem;
+    right: -1.5rem;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: white;
+    margin: 2rem;
+    width: 20rem;
+    height: 5rem;
+    border: solid thin rgb(240, 239, 239);
+    display: flex;
+    justify-content: flex-start;
+    transition: .2s;
+    align-items: center;
+    
+  }
+  .popupWindowClose {
+    position: absolute;
+    top:5rem;
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
     background-color: white;
     margin: 2rem;
     width: 19rem;
-    height: 5rem;
+    height: 0;
     border: solid thin rgb(240, 239, 239);
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    transition: .2s;
+    opacity: 0;
   }
-  
+  .popUpBody {
+    display: flex;
+    flex-grow: 1;
+    height: 5rem;
+    padding: .4rem;
+    flex-direction: column;
+   
+  }
   .popUpIcon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 3.8rem;
     height: 3.8rem;
-    margin-left: 1rem;
+    margin-left: .5rem;
     margin-right: 0.3rem;
-    border-radius: 10px;
+    
   }
-  
   .popUpImg {
+    width: 3.6rem;
+    height: 3.6rem;
+    opacity: 1;
+    border: white;
+  }
+  .popUpImgClose {
     width: 3.8rem;
     height: 3.8rem;
+    opacity: 0;
   }
-  
-  .popUpBody {
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    width: 11rem;
-    height: fit-content;
-    flex-direction: column;
-    margin: 0.5rem;
-  }
-  
-  .popTitle {
+  .popUpTitle {
     font-size: 0.9rem;
     transition: .2s;
+    color: black;
+
   }
-  
-  .poptext {
-    font-size: 0.7rem;
+  .popUpTitleClose {
+    font-size: 0.9rem;
+    opacity: 0;
+  }
+  .popUptext {
+    font-size: 0.75rem;
     color: rgb(105, 112, 122);
     transition: .2s;
   }
-  
+  .popUptextClose {
+    font-size: 0.7rem;
+    color: rgb(105, 112, 122);
+    opacity: 0;
+  }
   .closeButton {
     background-color: white;
     position: absolute;
@@ -74,139 +99,46 @@
     opacity: 1;
   }
   
-  .popupWindowClose {
-    position: relative;
-    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    background-color: white;
-    margin: 2rem;
-    width: 17rem;
-    height: 0;
-    border: solid thin rgb(240, 239, 239);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    opacity: 0;
-    overflow-y: hidden;
-    transition: 0.3s;
-  }
+/* Signout PopUp */
+
+.signout {
+  height: 7rem;
+ top: 35%;
+ left: 35%;
+ flex-direction: column;
+ font-size: 1rem;
+ padding: 0.4rem;
+ margin: 0;
+}
+.popUpTitle.signout {
+  height: 2rem;
+}
+.Buttons {
   
-  .poptextClose {
-    font-size: 0.7rem;
-    color: rgb(105, 112, 122);
-    opacity: 0;
-  }
-  
-  .popTitleClose {
-    font-size: 0.9rem;
-    opacity: 0;
-  }
-  
-  .popUpImgClose {
-    width: 3.8rem;
-    height: 3.8rem;
-    opacity: 0;
-  }
-
-
-
-
-  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-/* PopUp window Notification SIGNOUT window */
-
-  .popUpSignOut {
-    position: absolute;
-    top: 16rem;
-    right: 15rem;
-  }
-  .popupWindowSignOut {
-      position: relative;
-      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
-      border-radius: 15px;
-      background-color: white;
-      margin: 2rem;
-      width: 19rem;
-      height: 6rem;
-      border: solid thin rgb(240, 239, 239);
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      transition: .2s;
-    }
-    .popUpBodySignOut {
-      display: flex;
-      align-items: center;
-      flex-grow: 1;
-      flex-wrap: wrap;
-      width: 11rem;
-      height: 5rem;
-      flex-direction: column;
-      margin: 0.5rem;
-    }
-    .popTitleSignOut {
-      font-size: 0.9rem;
-      transition: .2s;
-      margin: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    .popupWindowSignOutClose {
-      position: relative;
-      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
-      border-radius: 15px;
-      background-color: white;
-      margin: 2rem;
-      width: 17rem;
-      height: 0;
-      border: solid thin rgb(240, 239, 239);
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      opacity: 0;
-      overflow-y: hidden;
-      transition: 0.2s;
-    }
-    
-    .popTitleSignOutClose {
-      font-size: 0.9rem;
-      opacity: 0;
-    }
-    .buttonsSignOut{
-      display: flex;
-      gap: 1rem;
-    }
-    .Button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 5.5rem;
-      height: 1.9rem;
-      border-radius: 25px;
-      border: solid thin rgb(240, 239, 239);
-      font-size: .7rem;
-      transition: .4s;
-      cursor: pointer;
-      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
-    }
-    .A_SignOut{
-      background-color: rgb(255, 80, 29);
-      color: white;
-    }
-    .B_SignOut:hover{
-      color:rgb(148, 146, 146);
-    }
-    .ButtonClose {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 5.5rem;
-      height: 0;
-      border-radius: 25px;
-      border: solid thin rgb(240, 239, 239);
-      font-size: .7rem;
-      transition: .2s;
-      cursor: pointer;
-      opacity: o;
-      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
-    }
-    
+  display: flex;
+  height: 2rem;
+  margin-bottom: .7rem;
+  gap: 1.5rem;
+}
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 2.5rem;
+  border: solid thin rgb(240, 239, 239);
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(255, 80, 29);
+  font-weight: 400;
+}
+.B {
+  background-color: white;
+  color: black;
+}
+.signoutArrow{
+  font-size: .8rem;
+  margin-left: .3rem;
+  color: white;
+}

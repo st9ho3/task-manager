@@ -5,10 +5,12 @@ import { storage, db } from "../../utils/Firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { authContext } from "../../Context/AuthContext";
 import { fileUploadContext } from "../../Context/FileUploadContext"; // Import the file upload context
+import { eventContext } from "../../Context/EventContext";
 
 const FileInput = () => {
   const { state } = useContext(authContext); // Get auth context
   const { fileState, uploadDispatch } = useContext(fileUploadContext); // Get file upload context
+  const {eventDispatch} = useContext(eventContext)
 
   const fileInputRef = useRef(null);
 
@@ -17,6 +19,12 @@ const FileInput = () => {
     if (selectedFile) {
       uploadDispatch({ type: "SET_FILE_NAME", payload: selectedFile.name });
       uploadDispatch({ type: "SET_FILE_URL", payload: selectedFile });
+      setTimeout(() => {
+        eventDispatch({type: "SHOW_MODAL", name: 'notification'})
+      },2000)
+      setTimeout(() => {
+        eventDispatch({type: "HIDE_MODAL", name: 'notification'})
+      },5000)
       uploadFile(selectedFile);
     }
   };
