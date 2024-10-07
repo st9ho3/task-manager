@@ -33,7 +33,7 @@ const INITIAL_STATE = {
           ...state,
           task: {
             ...state.task,
-            [action.field]:[action.value]``
+            [action.field]:[action.value]
           }
         }
       case 'RESET_FORM' :

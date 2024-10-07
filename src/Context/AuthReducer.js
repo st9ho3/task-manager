@@ -12,6 +12,11 @@ export const authReducer = (state, action) => {
         ...state,
         userDetails: action.payload,
       };
+    case 'SET_USERS':
+      return {
+        ...state,
+        users: action.payload
+      }
     // Update a specific field within a form (login or registration)
     case 'SET_FIELD':
       return {

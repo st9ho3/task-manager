@@ -13,7 +13,7 @@ const HeaderTop = () => {
           <input placeholder="Search..." className="searchBar" type="text" />
         </div>
         <IoNotificationsOutline className="NotificationIcon" />
-        <p className="welcome">Welcome {state.userDetails.username}</p>
+        {state.userDetails && <p className="welcome">Welcome {state.userDetails.username}</p>}
       </div>
   )
 }
