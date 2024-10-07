@@ -6,7 +6,6 @@ import { authContext } from './Context/AuthContext';
 const App = () => {
   const { routeState, dispatch } = useContext(routeContext);
   const {currentUser} = useContext(authContext)
-  console.log(routeState.currentForm)
   return (
     <div className="app">
       {routeState.currentForm === 'login' && !currentUser && (

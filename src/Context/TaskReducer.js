@@ -4,7 +4,7 @@ const INITIAL_STATE = {
       id: null,
       title: "",
       description: "",
-      status: "pending", // Default status is "pending"
+      status: "Status", // Default status is "Status"
       priority: "low", // Default priority is "low"
       dueDate: null,
       createdAt: new Date().toISOString(),
@@ -26,6 +26,21 @@ const INITIAL_STATE = {
   
   export default INITIAL_STATE;
 
-  export const taskReducer = () => {
+  export const taskReducer = (state, action) => {
+    switch (action.type) {
+      case 'SET_FIELD' :
+        return {
+          ...state,
+          task: {
+            ...state.task,
+            [action.field]:[action.value]``
+          }
+        }
+      case 'RESET_FORM' :
+        return {
+          ...state,
+          task:INITIAL_STATE.task
+        }
+    }
     
   }

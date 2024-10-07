@@ -20,9 +20,11 @@ import './Components/TaskForm/TaskForm.css'
 import './Components/TaskForm/TaskOption.css'
 import './Components/TaskForm/TaskOptions.css'
 import './Components/TaskForm/Option.css'
+import TaskContextProvider from './Context/TaskContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <TaskContextProvider>
     <EventProvider>
       <FileUploadProvider>
         <RouteContextProvider>
@@ -32,5 +34,6 @@ createRoot(document.getElementById('root')).render(
         </RouteContextProvider>
       </FileUploadProvider>
     </EventProvider>
+  </TaskContextProvider>
   </StrictMode>,
 );

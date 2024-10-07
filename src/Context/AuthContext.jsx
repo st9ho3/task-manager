@@ -38,7 +38,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.setItem('auth', JSON.stringify(state.currentUser));
 
     // Function to retrieve user details from Firestore
-    const getPic = async () => {
+    const getData = async () => {
       const docRef = doc(db, "users", state.currentUser.uid); // Reference to user document
       const docSnap = await getDoc(docRef); // Get document snapshot
 
@@ -53,7 +53,7 @@ const AuthContextProvider = ({ children }) => {
     };
 
     // Call getPic function to retrieve user details
-    state.currentUser && getPic();
+    state.currentUser && getData();
   }, [state.currentUser]); // Re-run effect when current user changes
 
   // Render authentication context provider
