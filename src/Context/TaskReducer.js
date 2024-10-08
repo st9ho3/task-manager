@@ -5,7 +5,7 @@ const INITIAL_STATE = {
     title: "",
     description: "",
     status: "Status", // Default status is "Status"
-    priority: "low", // Default priority is "low"
+    priority: "Priority", // Default priority is "low"
     dueDate: null,
     createdAt: new Date().toISOString(),
     updatedAt: null,

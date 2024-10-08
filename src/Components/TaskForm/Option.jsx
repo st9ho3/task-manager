@@ -21,6 +21,7 @@ const Option = ({ name, field }) => {
       )}
       {name}
       <div className={name === 'Doing' ? 'optionGreen' : name === 'Pending' ? 'optionYellow' : name === 'High' ? 'optionRed' : name === 'Medium' ? 'optionYellow' : name === 'Low' ? 'optionGreen' : null}></div>
+      
     </div>
   );
 };

@@ -49,3 +49,15 @@
 .optionArrows {
     background-color: white;
 }
+.assigneesNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(44, 184, 28, 0.582);
+    border-radius: 25px;
+    margin-left: 2.4rem;
+    font-size: .8rem;
+    color: white;
+}

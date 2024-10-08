@@ -24,13 +24,15 @@ const TaskForm = () => {
             </TaskOptions>
           )}
         </TaskOption>
-        <TaskOption  field="Assignee" number="2">
+
+        <TaskOption  field="Assignees" number="2">
           {eventState.taskOption === '2' && 
           <TaskOptions type='store'>
             <AssigneeOption />
             </TaskOptions>}
         </TaskOption>
-        <TaskOption field="Priority" number="3">
+
+        <TaskOption field={taskState.task.priority} number="3">
           {eventState.taskOption === '3' && (
             <TaskOptions type='list'>
               <Option field="priority" name="High" />
@@ -39,6 +41,7 @@ const TaskForm = () => {
             </TaskOptions>
           )}
         </TaskOption>
+
         <TaskOption  field="Attachments" number="4">
           {eventState.taskOption === '4' && <TaskOptions type='store' />}
         </TaskOption>
