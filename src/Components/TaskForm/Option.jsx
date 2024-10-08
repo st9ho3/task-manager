@@ -16,7 +16,10 @@ const Option = ({ name, field }) => {
       }}
       className="option"
     >
-      {taskState.task.status[0].toLowerCase() === name.toLowerCase() && (
+      {taskState.task.status[0].toLowerCase()  === name.toLowerCase() && (
+        <FaCheck className="optionCheck" />
+      )}
+      {taskState.task.priority[0].toLowerCase()  === name.toLowerCase() && (
         <FaCheck className="optionCheck" />
       )}
       {name}

@@ -10,7 +10,10 @@ const INITIAL_STATE = {
     createdAt: new Date().toISOString(),
     updatedAt: null,
     assignees: [], // Can be set to the current user or remain null if not assigned
-    tags: [],
+    tags: {
+      tagsStore: [],
+      taskTags: []
+    },
     attachments: [],
     subtasks: [],
     comments: [],
@@ -52,6 +55,17 @@ export const taskReducer = (state, action) => {
           [action.field]: action.payload,
         },
       };
+      case "ADD_TAG":
+        return {
+          ...state,
+          task: {
+            ...state.task,
+            tags: {
+              ...state.task.tags,
+              tagsStore: [...state.task.tags.tagsStore, action.payload],
+            },
+          },
+        };
     case "RESET_FORM":
       return {
         ...state,

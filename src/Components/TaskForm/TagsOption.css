@@ -1,0 +1,43 @@
+.tagsShowroom {
+    height: 9rem;
+    width: 19rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: scroll; 
+}
+.tagsInput{
+    width: 18rem;
+    height: 2rem;
+    margin: .5rem 0;
+    border: none;
+    border-bottom: solid thin rgb(240, 239, 239);
+    font-family: 'Poppins', sans-serif;
+    padding-left: 1rem;
+    color: rgb(150, 149, 149);
+}
+.tagsInput:focus {
+    outline: none;
+}
+.tagsInput::placeholder {
+    color: rgb(173, 173, 173);
+}
+.addTagButton {
+    width: 3.2rem;
+    height: 1.4rem;
+    margin-top: .4rem;
+    border-radius: 5px;
+    font-size: .9rem;
+    background-color: rgb(255, 80, 29);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addTagButton:hover {
+    transition: .3s;
+    opacity: .85;
+}
+
+

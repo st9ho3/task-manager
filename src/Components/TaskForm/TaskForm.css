@@ -48,10 +48,12 @@
     border-radius: 15px;
     padding: .3rem;
     margin: .3rem;
-    height: 10rem;
+    height: 8rem;
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    row-gap: .4rem;
     
 }

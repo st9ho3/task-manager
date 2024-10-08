@@ -15,9 +15,9 @@ const TaskOptions = ({children, type}) => {
     }
     },[windowRef])
   return (
-    <div ref={windowRef} className={type === 'list' ? 'optionShowroom' : 'optionStoreSmall'}>
-      {children}
-    </div>
+    <div ref={windowRef} className={type === 'list' ? 'optionShowroom' : type === 'CandyShop' ? 'optionCandyShop' : 'optionStoreSmall'}>
+     {children}
+    </div>  
   )
 }
 

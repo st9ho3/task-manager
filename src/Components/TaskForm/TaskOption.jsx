@@ -14,6 +14,7 @@ const TaskOption = ({ children, field, number }) => {
       {field !== 'Status' &&
         field !== 'Assignees' &&
         field !== 'Priority' &&
+        field !== 'Tags' &&
         field !== 'Attachments' && (
           <FaCheck className="optionChecked" />
         )}

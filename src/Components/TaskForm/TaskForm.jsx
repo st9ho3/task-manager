@@ -1,19 +1,25 @@
-import React, { useContext } from 'react';
+import React, {useState, useContext } from 'react';
 import { TaskFormData } from '../../Constants/TaskData';
 import { eventContext } from '../../Context/EventContext';
 import { taskContext } from '../../Context/TaskContext';
-import {Element,TaskOption,TaskOptions,Option, AssigneeOption} from '../../Constants/Components';
+import {Element,TaskOption,TaskOptions,Option, AssigneeOption, TagsOption, Tag} from '../../Constants/Components';
 
 const TaskForm = () => {
   const { eventState } = useContext(eventContext);
-  const { taskState } = useContext(taskContext);
+  const { taskState, taskDispatch } = useContext(taskContext);
+  const [newTag, setNewTag] = useState("");
+  const handleAddTag = () => {
+    if (newTag.trim() !== "" && !taskState.task.tags.tagsStore.includes(newTag)) {
+      taskDispatch({ type: "ADD_TAG", payload: newTag });
+      setNewTag(""); // Clear input after adding
+    }
+  };
+console.log(taskState.task.tags.tagsStore)
   return (
     <div className="taskForm">
       <div className="taskInputs">
-        {TaskFormData.map((task) => (
-          <Element key={task.id} data={task} type="task" />
-        ))}
-        <input className="taskInput desc" type="text" placeholder="Enter a description" />
+        <input className='taskInput' placeholder='Enter Title' value={taskState.task.title} onChange={(e) => taskDispatch({type:'SET_FIELD', field: 'title', value:e.target.value })} type="text" />
+        <input className="taskInput desc" type="text" value={taskState.task.description} onChange={(e) => taskDispatch({type:'SET_FIELD', field: 'description', value:e.target.value })} placeholder="Enter a description" />
       </div>
       <div className="taskOptions">
         <TaskOption  field={taskState.task.status} number="1">
@@ -44,6 +50,23 @@ const TaskForm = () => {
 
         <TaskOption  field="Attachments" number="4">
           {eventState.taskOption === '4' && <TaskOptions type='store' />}
+        </TaskOption>
+
+        <TaskOption  field="Tags" number="5">
+          {eventState.taskOption === '5' && 
+          <TaskOptions type='CandyShop'>
+            <input 
+                      placeholder="Enter a tag"
+                      className="tagsInput"
+                      type="text"
+                      value={newTag}
+                      onChange={(e) => setNewTag(e.target.value)}/>
+            <TagsOption>
+            {taskState.task.tags.tagsStore.map((tag) => <Tag key={tag} name={tag} /> )}
+              
+            </TagsOption>
+            <div className="addTagButton" onClick={handleAddTag}>Add</div>
+          </TaskOptions>}
         </TaskOption>
       </div>
     </div>

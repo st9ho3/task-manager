@@ -18,6 +18,8 @@ import TaskOption from "../Components/TaskForm/TaskOption"
 import TaskOptions from "../Components/TaskForm/TaskOptions"
 import Option from "../Components/TaskForm/Option"
 import AssigneeOption from "../Components/TaskForm/AssigneeOption"
+import TagsOption from "../Components/TaskForm/TagsOption"
+import Tag from "../Components/TaskForm/Tag"
 
 export {
     Navbar,
@@ -39,5 +41,7 @@ export {
     TaskOption,
     TaskOptions,
     Option,
-    AssigneeOption
+    AssigneeOption,
+    TagsOption,
+    Tag
 }
