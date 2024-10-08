@@ -1,13 +1,46 @@
 .tag {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: .2rem;
-    width: 5rem;
+    width: fit-content;
+    padding: .8rem;
     height: 1.5rem;
-    background-color: red;
-    border-radius: 5px;
-    color: white;
+    background-color: rgb(255, 233, 251);
+    border-radius: 25px;
+    border: solid thin rgb(255, 190, 241);
+    color: rgb(157, 20, 124);
+    font-size: .8rem; 
+    transition: .3s;
+    
+}
+.tagActive {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem;
+    width: fit-content;
+    padding: .8rem;
+    height: 1.5rem;
+    background-color: rgb(255, 233, 251);
+    border-radius: 25px;
+    border: solid thin rgb(255, 190, 241);
+    color: rgb(157, 20, 124);
     font-size: .8rem;
-
+    font-size: .8rem;
+    transition: .3s;
+    transform: translateY(-.4rem);
+        
+}
+.tag:hover
+.closeTagButton {
+    opacity: 1;
+    transition: .3s;
+}
+.closeTagButton {
+    margin-left: .2rem;
+    color: rgb(155, 118, 154);
+    font-size: 0.9rem;
 }

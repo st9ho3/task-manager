@@ -32,7 +32,6 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('auth', JSON.stringify(state.currentUser));
-
     const fetchUsers = async () => {
       if (state.currentUser) {
         try {

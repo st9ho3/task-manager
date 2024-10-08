@@ -8,13 +8,32 @@ const TaskForm = () => {
   const { eventState } = useContext(eventContext);
   const { taskState, taskDispatch } = useContext(taskContext);
   const [newTag, setNewTag] = useState("");
-  const handleAddTag = () => {
-    if (newTag.trim() !== "" && !taskState.task.tags.tagsStore.includes(newTag)) {
-      taskDispatch({ type: "ADD_TAG", payload: newTag });
-      setNewTag(""); // Clear input after adding
+
+  // Function to handle adding a tag with trimming and space normalization
+  const handleAddTag = (field) => {
+    const trimmedTag = newTag.trim().replace(/\s+/g, ''); // Trim and remove extra spaces
+
+    if (trimmedTag !== "" && !taskState.task.tags.tagsStore.includes(trimmedTag)) {
+      taskDispatch({ type: "ADD_TAG", field: field, payload: trimmedTag });
+      {field === "tagsStore" && setNewTag("")}; // Clear input after adding}
     }
   };
-console.log(taskState.task.tags.tagsStore)
+
+  // Function to detect 'Enter' key and trigger tag addition
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent form submission behavior if necessary
+      handleAddTag('tagsStore');
+    }
+  };
+
+  // Function to handle input change with character limit and trimming
+  const handleChange = (e) => {
+    const value = e.target.value.replace(/\s+/g, ''); // Remove extra spaces between words
+    if (value.length <= 14) { // Restrict input to 10 characters
+      setNewTag(value);
+    }
+  };
   return (
     <div className="taskForm">
       <div className="taskInputs">
@@ -60,12 +79,14 @@ console.log(taskState.task.tags.tagsStore)
                       className="tagsInput"
                       type="text"
                       value={newTag}
-                      onChange={(e) => setNewTag(e.target.value)}/>
+                      onChange={handleChange}
+                      onKeyDown={handleKeyPress}
+                      />
             <TagsOption>
-            {taskState.task.tags.tagsStore.map((tag) => <Tag key={tag} name={tag} /> )}
+            {taskState.task.tags.tagsStore.map((tag) => <Tag key={tag} name={tag} handleAddTag={handleAddTag} /> )}
               
             </TagsOption>
-            <div className="addTagButton" onClick={handleAddTag}>Add</div>
+            <div className="addTagButton" onClick={() => handleAddTag('tagsStore')}>Add</div>
           </TaskOptions>}
         </TaskOption>
       </div>

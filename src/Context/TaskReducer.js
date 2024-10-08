@@ -62,10 +62,21 @@ export const taskReducer = (state, action) => {
             ...state.task,
             tags: {
               ...state.task.tags,
-              tagsStore: [...state.task.tags.tagsStore, action.payload],
+              [action.field]: [...state.task.tags?.[action.field], action.payload],
             },
           },
         };
+    case 'REMOVE_TAG':
+      return {
+        ...state,
+        task:{
+          ...state.task,
+          tags: {
+            ...state.task.tags,
+            [action.field]: action.payload 
+          }
+        }
+      }    
     case "RESET_FORM":
       return {
         ...state,
