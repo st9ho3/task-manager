@@ -1,0 +1,35 @@
+.assOption{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    width:20rem;
+    height: 2rem;
+    border-bottom: solid thin rgb(244, 244, 244);
+    margin: .3rem;
+    padding-left: .6rem;
+    font-size: .8rem;
+}
+.assOption:hover{
+    background-color:  rgba(250, 250, 250);
+    transition: .3s;
+    border-radius: 10px;
+}
+.assOptionActive{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    width:20rem;
+    height: 2rem;
+    border-bottom: solid thin rgb(244, 244, 244);
+    margin: .3rem;
+    padding-left: .6rem;
+    font-size: .8rem;
+    background-color:  rgba(44, 184, 28, 0.093);
+    border-radius: 8px;
+}
+
+.userListImage {
+    width: 28px;
+    height: 28px;
+    margin-right: .6rem;
+}

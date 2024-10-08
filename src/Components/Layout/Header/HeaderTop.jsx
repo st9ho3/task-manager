@@ -5,7 +5,6 @@ import { PiMagnifyingGlassLight } from 'react-icons/pi';
 
 const HeaderTop = () => {
     const { state, authDispatch } = useContext(authContext);
-
   return (
     <div className="top">
         <div className="searchBarContainer">
@@ -13,7 +12,7 @@ const HeaderTop = () => {
           <input placeholder="Search..." className="searchBar" type="text" />
         </div>
         <IoNotificationsOutline className="NotificationIcon" />
-        {state.userDetails && <p className="welcome">Welcome {state.userDetails.username}</p>}
+         <p className="welcome">Welcome {state.userDetails.username}</p>
       </div>
   )
 }

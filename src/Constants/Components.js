@@ -17,6 +17,7 @@ import HeaderBottom from "../Components/Layout/Header/HeaderBottom"
 import TaskOption from "../Components/TaskForm/TaskOption"
 import TaskOptions from "../Components/TaskForm/TaskOptions"
 import Option from "../Components/TaskForm/Option"
+import AssigneeOption from "../Components/TaskForm/AssigneeOption"
 
 export {
     Navbar,
@@ -37,5 +38,6 @@ export {
     HeaderBottom,
     TaskOption,
     TaskOptions,
-    Option
+    Option,
+    AssigneeOption
 }

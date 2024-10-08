@@ -11,8 +11,6 @@ const TaskOption = ({children, field, number}) => {
     const {taskState} = useContext(taskContext)
     const showCheckIcon = field === 'Attachments' && taskState.task.attachments.length > 0;
 
-    console.log(showCheckIcon)
-
   return (
     <div className='taskOption' onClick={() => eventDispatch({type:'SET_TASK', payload: number})}>
         {field !== 'Status' && field !== 'Assignee' && field !== 'Priority' && field !== 'Attachments'  && <FaCheck className="optionChecked" />}

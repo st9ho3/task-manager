@@ -1,6 +1,6 @@
     .optionShowroom{
-        position: absolute;
-    right: -4.5rem;
+    position: absolute;
+    bottom: 0;
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
     background-color: white;
@@ -16,3 +16,34 @@
     z-index: 15;
     overflow: hidden;
     }
+
+.optionStoreSmall {
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    margin: 2rem;
+    width: 20.5rem;
+    height: 14.5rem;
+    border: solid thin rgb(240, 239, 239);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    overflow: hidden;
+}
+.optionStoreBig {
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    margin: 2rem;
+    width: 20.5rem;
+    height: 14.5rem;
+    border: solid thin rgb(240, 239, 239);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    overflow: scroll;
+}

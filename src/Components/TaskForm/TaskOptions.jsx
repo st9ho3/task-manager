@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { eventContext } from '../../Context/EventContext'
 
-const TaskOptions = ({children}) => {
+const TaskOptions = ({children, type}) => {
     const {eventDispatch} = useContext(eventContext)
     const windowRef = useRef(null)
     useEffect(() => {
-        console.log('useefect')
         const handleClickOutside = (e) => {
             if (windowRef.current && !windowRef.current.contains(e.target)) {
                 eventDispatch({type:'RESET_FORM'})
@@ -15,9 +14,8 @@ const TaskOptions = ({children}) => {
         document.removeEventListener("mousedown", handleClickOutside)
     }
     },[windowRef])
-
   return (
-    <div ref={windowRef} className='optionShowroom'>
+    <div ref={windowRef} className={type === 'list' ? 'optionShowroom' : 'optionStoreSmall'}>
       {children}
     </div>
   )

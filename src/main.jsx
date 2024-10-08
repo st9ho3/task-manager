@@ -20,6 +20,7 @@ import './Components/TaskForm/TaskForm.css'
 import './Components/TaskForm/TaskOption.css'
 import './Components/TaskForm/TaskOptions.css'
 import './Components/TaskForm/Option.css'
+import './Components/TaskForm/AssigneeOption.css'
 import TaskContextProvider from './Context/TaskContext.jsx';
 
 createRoot(document.getElementById('root')).render(
