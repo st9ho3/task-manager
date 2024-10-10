@@ -1,0 +1,75 @@
+/* Override input field */
+.react-datepicker__input-container input {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #4CAF50;
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+    display: none;
+  }
+  
+  /* Customizing the calendar popup */
+  .react-datepicker {
+    font-family: 'Poppins', sans-serif;
+    border: solid thin rgb(240, 239, 239);
+    border-radius: 15px;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
+
+  }
+  
+  /* Calendar header */
+  .react-datepicker__header {
+    background-color: rgb(255, 80, 29);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    border-bottom: none;
+    padding: 10px;
+  }
+  /* Adjust the month and arrow styles */
+.react-datepicker__current-month {
+    margin: 0 10px; /* Adjust margins if needed */
+    font-weight: 400;
+    font-size: 1rem; /* Increase font size */
+    color: white;
+  }
+  .react-datepicker__navigation--previous {
+margin-left: 1rem;
+
+  }
+  .react-datepicker__navigation--next {
+margin-right: 1rem;
+
+  }
+  
+  /* Days in the calendar */
+  .react-datepicker__day {
+    color: #333;
+    padding: 9px;
+    margin: 6px;
+    border-radius: 25px;
+    cursor: pointer;
+    height: 1.8rem;
+  }
+  
+  /* Customizing today's date */
+  .react-datepicker__day--today {
+    background-color: none;
+    color: rgb(247, 1, 1);
+
+  }
+  
+  /* Customizing the selected day */
+  .react-datepicker__day--selected {
+    background-color: none;
+    color: white;
+    border-radius: 50%;
+  }
+  .react-datepicker__day:hover {
+    background-color: none;
+    
+  }

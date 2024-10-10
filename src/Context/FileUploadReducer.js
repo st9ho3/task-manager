@@ -1,4 +1,5 @@
 export const INITIAL_STATE = {
+    fileType: "",
     fileName: "",
     fileURL: null,
     uploadProgress: 0,
@@ -11,6 +12,11 @@ export const fileReducer = (state, action) => {
             return {
                 ...state,
                 fileName: action.payload
+            };
+        case 'SET_FILE_TYPE':
+            return {
+                ...state,
+                fileType: action.payload
             };
         case 'SET_FILE_URL':
             if (action.payload instanceof File || action.payload instanceof Blob) {
@@ -34,6 +40,7 @@ export const fileReducer = (state, action) => {
             };
         case 'RESET_FILE_STATE':  // New case to reset the file state
             return {
+                fileType: "",
                 fileName: "",
                 fileURL: null,
                 uploadProgress: 0,

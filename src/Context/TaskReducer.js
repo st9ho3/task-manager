@@ -1,19 +1,19 @@
+import { v4 as uuidv4 } from 'uuid';
+const uniqueId = uuidv4();
 const INITIAL_STATE = {
-  tasks: [], // An array to hold multiple task objects
+  tasks: [],
+  newTag: "",
   task: {
-    id: null,
-    title: "",
-    description: "",
-    status: "Status", // Default status is "Status"
-    priority: "Priority", // Default priority is "low"
+    id: uniqueId,
+    title: '',
+    description: '',
+    status: 'Status', // Default status is "Status"
+    priority: 'Priority', // Default priority is "low"
     dueDate: null,
     createdAt: new Date().toISOString(),
     updatedAt: null,
     assignees: [], // Can be set to the current user or remain null if not assigned
-    tags: {
-      tagsStore: [],
-      taskTags: []
-    },
+    tags: [],
     attachments: [],
     subtasks: [],
     comments: [],
@@ -31,7 +31,7 @@ export default INITIAL_STATE;
 
 export const taskReducer = (state, action) => {
   switch (action.type) {
-    case "SET_FIELD":
+    case 'SET_FIELD':
       return {
         ...state,
         task: {
@@ -39,7 +39,7 @@ export const taskReducer = (state, action) => {
           [action.field]: [action.value],
         },
       };
-    case "ADD_VALUE":
+    case 'ADD_VALUE':
       return {
         ...state,
         task: {
@@ -47,7 +47,7 @@ export const taskReducer = (state, action) => {
           [action.field]: [...state.task?.[action.field], action.payload],
         },
       };
-    case "REMOVE_VALUE":
+    case 'REMOVE_VALUE':
       return {
         ...state,
         task: {
@@ -55,32 +55,36 @@ export const taskReducer = (state, action) => {
           [action.field]: action.payload,
         },
       };
-      case "ADD_TAG":
-        return {
-          ...state,
-          task: {
-            ...state.task,
-            tags: {
-              ...state.task.tags,
-              [action.field]: [...state.task.tags?.[action.field], action.payload],
-            },
-          },
-        };
-    case 'REMOVE_TAG':
+    case 'SELECT_DATE':
       return {
         ...state,
-        task:{
+        task: {
           ...state.task,
-          tags: {
-            ...state.task.tags,
-            [action.field]: action.payload 
-          }
+          dueDate: action.payload
         }
-      }    
-    case "RESET_FORM":
+      }
+    case 'UPDATE_TASKS':
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks,
+          action.payload
+        ]
+      }
+    case 'RESET_FORM':
       return {
         ...state,
         task: INITIAL_STATE.task,
+      };
+      case 'SET_TAG':
+      return {
+        ...state,
+          [action.field]: [action.value]
+        }
+    case 'RESET_TAG':
+      return {
+        ...state,
+        newTag: INITIAL_STATE.newTag,
       };
     default:
       return state;

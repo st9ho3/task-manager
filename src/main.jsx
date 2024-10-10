@@ -24,6 +24,7 @@ import './Components/TaskForm/Option.css'
 import './Components/TaskForm/AssigneeOption.css'
 import './Components/TaskForm/TagsOption.css'
 import './Components/TaskForm/Tag.css'
+import './Components/TaskForm/DatePicker.css'
 
 
 createRoot(document.getElementById('root')).render(

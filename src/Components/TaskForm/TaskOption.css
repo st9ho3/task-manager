@@ -9,16 +9,16 @@
     border-radius: 5px;
     cursor: pointer;
     transition: .2s;
-    background-color: rgb(253, 253, 253);
-    
+    background-color: rgb(253, 253, 253);    
 
 }
+
 .optionTitle {
     font-size: .9rem;
     display: flex;
     margin-left: .5rem;
     align-items: center;
-    color: rgb(122, 120, 120); ;
+    color: rgb(122, 120, 120); 
 }
 .optionArrows {
     border-radius: 6px;

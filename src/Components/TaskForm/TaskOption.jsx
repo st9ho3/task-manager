@@ -4,18 +4,21 @@ import { FaCheck } from 'react-icons/fa6';
 import { eventContext } from '../../Context/EventContext';
 import { taskContext } from '../../Context/TaskContext';
 
-const TaskOption = ({ children, field, number }) => {
+const TaskOption = ({ children, field, number, dateRef }) => {
   const { eventDispatch } = useContext(eventContext);
   const { taskState } = useContext(taskContext);
   const showCheckIcon = field === 'Attachments' && taskState.task.attachments.length > 0;
 
   return (
-    <div className="taskOption" onClick={() => eventDispatch({ type: 'SET_TASK', payload: number })}>
+    <div className="taskOption" onClick={() => {
+    field === 'Due Date' ? dateRef.current.setOpen(true) :
+    eventDispatch({ type: 'SET_TASK', payload: number })}}>
       {field !== 'Status' &&
         field !== 'Assignees' &&
         field !== 'Priority' &&
         field !== 'Tags' &&
-        field !== 'Attachments' && (
+        field !== 'Attachments' && 
+        field !== 'Due Date' && (
           <FaCheck className="optionChecked" />
         )}
       {showCheckIcon && <FaCheck className="optionChecked" />}

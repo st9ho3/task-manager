@@ -1,16 +1,20 @@
 .taskForm {
     position: absolute;
-    top:8rem;
-    right: 28rem;
+    top:10rem;
+    right: 24rem;
     box-shadow: 0.2 1px 0.8px rgba(0, 0, 0, 0.08), 0.2 2px 2.25px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
     background-color: white;
     margin: 2rem;
     width: 30rem;
-    height: 30rem;
+    height: fit-content;
+    max-height: 25rem;
     border: solid thin rgb(240, 239, 239);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem;
     transition: .2s;
    
 }
@@ -38,7 +42,9 @@
 .taskInput.desc {
     margin: 1.5rem;
     font-size: .8rem;
-    color: rgb(156, 153, 153);;
+    color: rgb(156, 153, 153);
+    max-height: 8rem;
+    max-width: 25rem;
 }
 .taskInput.desc::placeholder {
     
@@ -49,6 +55,7 @@
     padding: .3rem;
     margin: .3rem;
     height: 8rem;
+    width: 29rem;
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
@@ -56,4 +63,11 @@
     justify-content: flex-start;
     row-gap: .4rem;
     
+}
+.attachmentIcon {
+    position: absolute;
+    z-index: 15;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
 }

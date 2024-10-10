@@ -11,20 +11,33 @@ const Option = ({ name, field }) => {
   return (
     <div
       onClick={() => {
-        taskDispatch({ type: 'SET_FIELD', field: field, value: name });
+        taskDispatch({ type: 'SET_FIELD', field, value: name });
         setTimeout(() => eventDispatch({ type: 'RESET_FORM' }), 10);
       }}
       className="option"
     >
-      {taskState.task.status[0].toLowerCase()  === name.toLowerCase() && (
+      {taskState.task.status[0].toLowerCase() === name.toLowerCase() && (
         <FaCheck className="optionCheck" />
       )}
-      {taskState.task.priority[0].toLowerCase()  === name.toLowerCase() && (
+      {taskState.task.priority[0].toLowerCase() === name.toLowerCase() && (
         <FaCheck className="optionCheck" />
       )}
       {name}
-      <div className={name === 'Doing' ? 'optionGreen' : name === 'Pending' ? 'optionYellow' : name === 'High' ? 'optionRed' : name === 'Medium' ? 'optionYellow' : name === 'Low' ? 'optionGreen' : null}></div>
-      
+      <div
+        className={
+          name === 'Doing'
+            ? 'optionGreen'
+            : name === 'Pending'
+              ? 'optionYellow'
+              : name === 'High'
+                ? 'optionRed'
+                : name === 'Medium'
+                  ? 'optionYellow'
+                  : name === 'Low'
+                    ? 'optionGreen'
+                    : null
+        }
+      />
     </div>
   );
 };

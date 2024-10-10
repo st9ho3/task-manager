@@ -2,11 +2,11 @@ import { createContext, useContext, useEffect, useReducer } from 'react';
 import { authReducer } from './AuthReducer';
 import { db } from "../utils/Firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { routeContext } from './RouteContext';
 
 export const INITIAL_STATE = {
   users: [],
   userDetails: {},
+  tempTagsStore: [],
   currentUser: localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : null,
   login: {
     email: '',
@@ -28,8 +28,7 @@ export const authContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [state, authDispatch] = useReducer(authReducer, INITIAL_STATE);
-  const { routeState } = useContext(routeContext);
-
+  
   useEffect(() => {
     localStorage.setItem('auth', JSON.stringify(state.currentUser));
     const fetchUsers = async () => {
@@ -43,7 +42,7 @@ const AuthContextProvider = ({ children }) => {
         }
       }
     };
-
+    
     fetchUsers();
   }, [state.currentUser]);
 
@@ -54,7 +53,13 @@ const AuthContextProvider = ({ children }) => {
         authDispatch({ type: 'SET_USER_DETAILS', payload: currentUserDetails });
       }
     }
+    
   }, [state.currentUser, state.users]);
+  useEffect(() => {
+    authDispatch({type: 'ADD_TAG', payload: state.userDetails.tagsStore})
+    
+  }, [state.userDetails])
+  
   return (
     <authContext.Provider value={{ currentUser: state.currentUser, state, authDispatch }}>
       {children}

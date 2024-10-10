@@ -26,6 +26,22 @@ export const authReducer = (state, action) => {
           [action.name]: action.value,
         },
       };
+    case 'ADD_VALUE':
+      return {
+        ...state,
+        userDetails: {
+          ...state.userDetails, 
+          [action.field]: [...state.userDetails?.[action.field], action.payload]
+        }
+      }
+    case 'REMOVE_VALUE':
+      return {
+        ...state,
+        userDetails: {
+          ...state.userDetails,
+          [action.field]: action.payload
+        }
+      }
     // Set error flag for authentication operations
     case 'SET_ERROR':
       return {
@@ -48,6 +64,24 @@ export const authReducer = (state, action) => {
         error: false,
         loading: false,
       };
+    case 'ADD_TAG':
+      return {
+        ...state,
+        tempTagsStore: action.payload
+      }
+    case 'ADD_NEW_TAG':
+      return {
+        ...state,
+        tempTagsStore: [
+          ...state.tempTagsStore, action.payload
+        ]
+      }
+    case 'REMOVE_TEMP_TAG':
+      return {
+        ...state,
+        tempTagsStore: action.payload
+      }
+
     default:
       return state;
   }

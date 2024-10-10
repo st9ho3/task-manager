@@ -6,28 +6,34 @@ import { routeContext } from '../../../../Context/RouteContext';
 import { fileUploadContext } from '../../../../Context/FileUploadContext';
 import {TaskForm, PopUpWindow} from '../../../../Constants/Components'
 import { eventContext } from '../../../../Context/EventContext';
+import { taskContext } from '../../../../Context/TaskContext';
 
 const TaskBoard = () => {
-  const { authDispatch } = useContext(authContext);
-  const { uploadDispatch } = useContext(fileUploadContext);
+  const { state,authDispatch } = useContext(authContext);
+  const { fileState,uploadDispatch } = useContext(fileUploadContext);
   const { routeState,dispatch } = useContext(routeContext);
-  const { eventDispatch } = useContext(eventContext);
+  const { eventState,eventDispatch } = useContext(eventContext);
+  const { taskState,taskDispatch } = useContext(taskContext)
 
+  const resetForms = () => {
+    dispatch({ type: 'ONFORMSWITCH', payload: 'login' });
+    authDispatch({type: 'RESET_FORM', initialState: INITIAL_STATE})
+    eventDispatch({type: 'RESET_FORM'})
+    uploadDispatch({type: 'RESET_FILE_STATE'})
+    taskDispatch({type: 'RESET_FORM'})
+  }
   const SignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log('signed out')
         authDispatch({ type: 'SET_CURRENT_USER', payload: auth.currentUser });
         uploadDispatch({ type: 'RESET_FILE_STATE' });
         setTimeout(() => {
-          dispatch({ type: 'ONFORMSWITCH', payload: 'login' });
-          authDispatch({ type: 'RESET_FORM', initialState: INITIAL_STATE });
+          resetForms();
         }, 300);
       })
       .catch((error) => {
         // An error happened.
       });
-    eventDispatch({ type: 'RESET_FORM' });
   };
   
 

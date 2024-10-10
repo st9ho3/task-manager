@@ -49,7 +49,9 @@ const AuthForm = ({ formType }) => {
         await setDoc(doc(db, "users", userCredential.user.uid), {
          ...state.registration,
          time: serverTimestamp(),
-         rememberMe: false
+         rememberMe: false,
+         tagsStore: [],
+         tasks: []
         });
         authDispatch({type:'SET_CURRENT_USER', payload: userCredential.user })
         dispatch({ type: 'HANDLESUCCESSLOGIN', payload: 'home' });
