@@ -43,7 +43,7 @@ export const fileReducer = (state, action) => {
             return {
                 fileType: "",
                 fileName: "",
-                fileImg: "",
+                fileImg: null,
                 fileURL: null,
                 uploadProgress: 0,
                 uploadError: null
