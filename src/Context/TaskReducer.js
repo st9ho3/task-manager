@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-const uniqueId = uuidv4();
+
 const INITIAL_STATE = {
   tasks: [],
   newTag: "",
   task: {
-    id: uniqueId,
+    id: uuidv4(),
     title: '',
     description: '',
     status: 'Status', // Default status is "Status"
@@ -74,7 +74,10 @@ export const taskReducer = (state, action) => {
     case 'RESET_FORM':
       return {
         ...state,
-        task: INITIAL_STATE.task,
+        task: {
+          ...INITIAL_STATE.task,
+        id:action.payload}
+          
       };
       case 'SET_TAG':
       return {

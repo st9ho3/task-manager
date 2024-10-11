@@ -70,6 +70,7 @@ input:active {
 button {
   width: 80%;
   height: 2.2rem;
+  min-height: 2.2rem;
   border-radius: 10px;
   border: none;
   color: white;

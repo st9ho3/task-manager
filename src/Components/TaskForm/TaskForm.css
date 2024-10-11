@@ -22,6 +22,8 @@
     border-radius: 15px;
     padding: .3rem;
     margin: .3rem;
+    height: 9rem;
+    max-height: 10rem;
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
 
 }   
@@ -43,8 +45,10 @@
     margin: 1.5rem;
     font-size: .8rem;
     color: rgb(156, 153, 153);
-    max-height: 8rem;
+    max-height: 3.5rem;
     max-width: 25rem;
+    height: 3.5rem;
+    width: 25rem;
 }
 .taskInput.desc::placeholder {
     
@@ -71,3 +75,4 @@
     left: 1rem;
     font-size: 1.5rem;
 }
+

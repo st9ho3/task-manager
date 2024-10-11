@@ -1,0 +1,19 @@
+.attachmentsDisplay {
+    display: flex;
+    align-items: center;
+    width: 10rem;
+    height: 3.5rem;
+    margin-left: 1rem;
+    border-radius: 15px;
+    border: solid thin rgb(240, 239, 239);
+    
+}
+.attItem {
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: rgb(174, 170, 170);
+}
+.attTitle {
+    font-size: .8rem;
+    color: rgb(117, 115, 115);
+}

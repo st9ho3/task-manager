@@ -11,21 +11,23 @@ import {
   TagsOption,
   Tag,
   Button,
+  AttachmentsDisplay,
 } from '../../Constants/Components';
-import { GoPaperclip } from "react-icons/go";
+import { GoPaperclip } from 'react-icons/go';
 import useAddTask from '../../Hooks/UseAddTask';
 import useAvailableValue from '../../Hooks/UseAvailableValue';
 import { authContext } from '../../Context/AuthContext';
 import useFileUpload from '../../Hooks/UseFileUpload';
 
 const TaskForm = () => {
-  const {fileInputRef, handleFileChange, fileState} = useFileUpload({
+  const { fileInputRef, handleFileChange } = useFileUpload({
     storagePath: 'attachments/files',
     updateUserData: true,
     Field: 'attachments',
     maxFileSize: 2 * 1024 * 1024,
-    allowedFileTypes: ['application/pdf']
-    })
+    allowedFileTypes: ['application/pdf'],
+  });
+
   const { eventState } = useContext(eventContext);
   const { taskState, taskDispatch } = useContext(taskContext);
   const { state } = useContext(authContext);
@@ -34,8 +36,6 @@ const TaskForm = () => {
 
   const datePick = useRef(null);
 
-
-
   return (
     <div className="taskForm">
       <div className="taskInputs">
@@ -43,14 +43,25 @@ const TaskForm = () => {
           className="taskInput"
           placeholder="Enter Title"
           value={taskState.task.title}
-          onChange={(e) => taskDispatch({ type: 'SET_FIELD', field: 'title', value: e.target.value })}
+          onChange={(e) =>
+            taskDispatch({
+              type: 'SET_FIELD',
+              field: 'title',
+              value: e.target.value,
+            })
+          }
           type="text"
         />
         <textarea
           className="taskInput desc"
-          type="area"
           value={taskState.task.description}
-          onChange={(e) => taskDispatch({ type: 'SET_FIELD', field: 'description', value: e.target.value })}
+          onChange={(e) =>
+            taskDispatch({
+              type: 'SET_FIELD',
+              field: 'description',
+              value: e.target.value,
+            })
+          }
           placeholder="Enter a description"
         />
       </div>
@@ -84,17 +95,21 @@ const TaskForm = () => {
         </TaskOption>
 
         <TaskOption field="Attachments" number="4">
-          {eventState.taskOption === '4' && 
-          <TaskOptions type="CandyShop">
-            <input
-        type="file"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        style={{ display: "none" }}
-        id="fileInput"
-      />
-            <GoPaperclip onClick={() => fileInputRef.current.click()} className='attachmentIcon' />
-          </TaskOptions>}
+          {eventState.taskOption === '4' && (
+            <TaskOptions type="CandyShop">
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+                id="fileInput"
+              />
+              <GoPaperclip
+                onClick={() => fileInputRef.current.click()}
+                className="attachmentIcon"
+              />
+            </TaskOptions>
+          )}
         </TaskOption>
 
         <TaskOption field="Tags" number="5">
@@ -103,7 +118,6 @@ const TaskForm = () => {
               <input
                 placeholder="Enter a tag"
                 className="tagsInput"
-                type="text"
                 value={newTag}
                 onChange={handleChange}
                 onKeyDown={handleKeyPress}
@@ -113,16 +127,29 @@ const TaskForm = () => {
                   <Tag key={tag} name={tag} />
                 ))}
               </TagsOption>
-              <div className="addTagButton" onClick={() => handleAddTag('tagsStore')}>
+              <div
+                className="addTagButton"
+                onClick={() => handleAddTag('tagsStore')}
+              >
                 Add
               </div>
             </TaskOptions>
           )}
         </TaskOption>
 
-        <TaskOption dateRef={datePick} field="Due Date" number="6" />
+        <TaskOption dateRef={datePick} field="Due Date" number="6">
+          <div className="datePicker">
+          <DatePicker
+          ref={datePick}
+          selected={taskState.task.dueDate}
+          onChange={(date) =>
+            taskDispatch({ type: 'SELECT_DATE', payload: date })
+          }
+        />
+          </div>
+        </TaskOption>
+        <AttachmentsDisplay/>
 
-        <DatePicker ref={datePick} selected={taskState.task.dueDate} onChange={(date) => taskDispatch({ type: 'SELECT_DATE', payload: date })} />
       </div>
 
       <Button text="Create" action={handleTaskCreation} />

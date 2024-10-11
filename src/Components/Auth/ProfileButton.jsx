@@ -30,11 +30,15 @@ const FileInput = () => {
 
         {state.userDetails.img && (
           <img
-            className="profileCanvas"
-            src={fileState.fileType === 'image/png' || fileState.fileType === 'image/jpeg' && fileState.fileURL ? fileState.fileURL : state.userDetails.img}
-            alt="Profile"
-            style={{ width: "45px", height: "45px" }}
-          />
+          className="profileCanvas"
+          src={
+            fileState.fileImg
+              ? fileState.fileImg
+              : state.userDetails.img
+          }
+          alt="Profile"
+          style={{ width: "45px", height: "45px" }}
+        />
         )}
       </div>
     </div>

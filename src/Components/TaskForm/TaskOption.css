@@ -62,3 +62,8 @@
     font-size: .8rem;
     color: white;
 }
+.datePicker {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+}

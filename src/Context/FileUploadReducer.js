@@ -1,6 +1,7 @@
 export const INITIAL_STATE = {
     fileType: "",
     fileName: "",
+    fileImg: null,
     fileURL: null,
     uploadProgress: 0,
     uploadError: null
@@ -22,7 +23,7 @@ export const fileReducer = (state, action) => {
             if (action.payload instanceof File || action.payload instanceof Blob) {
                 return {
                     ...state,
-                    fileURL: URL.createObjectURL(action.payload)
+                    [action.field]: URL.createObjectURL(action.payload)
                 };
             } else {
                 console.error('Invalid file object passed to SET_FILE_URL');
@@ -42,6 +43,7 @@ export const fileReducer = (state, action) => {
             return {
                 fileType: "",
                 fileName: "",
+                fileImg: "",
                 fileURL: null,
                 uploadProgress: 0,
                 uploadError: null

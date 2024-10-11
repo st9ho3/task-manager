@@ -22,6 +22,7 @@ import TagsOption from "../Components/TaskForm/TagsOption"
 import Tag from "../Components/TaskForm/Tag"
 import AddTaskButton from "../Components/TaskForm/AddTaskButton"
 import Button from "../Components/General/Button"
+import AttachmentsDisplay from "../Components/TaskForm/AttachmentsDisplay"
 
 export {
     Navbar,
@@ -47,5 +48,6 @@ export {
     TagsOption,
     Tag,
     AddTaskButton,
-    Button
+    Button,
+    AttachmentsDisplay
 }
