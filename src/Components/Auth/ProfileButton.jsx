@@ -31,7 +31,7 @@ const FileInput = () => {
         {state.userDetails.img && (
           <img
             className="profileCanvas"
-            src={fileState.fileType === 'image/jpeg' || fileState.fileType === 'image/png' && fileState.fileURL ? fileState.fileURL : state.userDetails.img}
+            src={fileState.fileType === 'image/png' || fileState.fileType === 'image/jpeg' && fileState.fileURL ? fileState.fileURL : state.userDetails.img}
             alt="Profile"
             style={{ width: "45px", height: "45px" }}
           />

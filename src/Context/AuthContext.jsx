@@ -57,7 +57,7 @@ const AuthContextProvider = ({ children }) => {
   }, [state.currentUser, state.users]);
   useEffect(() => {
     authDispatch({type: 'ADD_TAG', payload: state.userDetails.tagsStore})
-    
+    console.log(state.userDetails)
   }, [state.userDetails])
   
   return (

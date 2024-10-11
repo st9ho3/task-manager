@@ -28,9 +28,16 @@ const useFileUpload = (options = {}) => {
   const updateCollection = async (collection,fileUrl,id) => {
     if (updateUserData) {
       const userDocRef = doc(db, collection, id);
-      await updateDoc(userDocRef, { 
-        [Field]: arrayUnion(fileUrl)
-       });
+      if (Field === 'attachments') {
+        await updateDoc(userDocRef, { 
+          [Field]: arrayUnion(fileUrl)
+         });
+      } else {
+        await updateDoc(userDocRef, { 
+          [Field]: fileUrl
+         });
+      }
+      
     }
     if (onUploadSuccess) {
       onUploadSuccess(fileUrl);
