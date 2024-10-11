@@ -15,9 +15,6 @@ const AssigneeOption = () => {
     }
   };
 
-  // Remove unnecessary console.log statement
-  // console.log(taskState.task.assignees);
-
   return (
     <ul className="assignees">
       {state.users &&

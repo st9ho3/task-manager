@@ -35,6 +35,12 @@ return (
             {shortenedFileName}
         </p>
         </div>}
+        {/* {(fileType === 'image/png' || fileType === 'image/jpeg') && <div name='pic' className='attachmentsDisplay'>
+        <FaRegFileWord className='attItem' />
+        <p className='attTitle'> 
+            {shortenedFileName}
+        </p>
+        </div>} */}
          
         </div>
   )

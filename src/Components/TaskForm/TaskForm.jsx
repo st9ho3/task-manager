@@ -13,21 +13,12 @@ import {
   Button,
   AttachmentsDisplay,
 } from '../../Constants/Components';
-import { GoPaperclip } from 'react-icons/go';
+
 import useAddTask from '../../Hooks/UseAddTask';
 import useAvailableValue from '../../Hooks/UseAvailableValue';
 import { authContext } from '../../Context/AuthContext';
-import useFileUpload from '../../Hooks/UseFileUpload';
 
 const TaskForm = () => {
-  const { fileInputRef, handleFileChange } = useFileUpload({
-    storagePath: 'attachments/files',
-    updateUserData: true,
-    Field: 'attachments',
-    maxFileSize: 2 * 1024 * 1024,
-    allowedFileTypes: ['application/pdf'],
-  });
-
   const { eventState } = useContext(eventContext);
   const { taskState, taskDispatch } = useContext(taskContext);
   const { state } = useContext(authContext);
@@ -95,21 +86,7 @@ const TaskForm = () => {
         </TaskOption>
 
         <TaskOption field="Attachments" number="4">
-          {eventState.taskOption === '4' && (
-            <TaskOptions type="CandyShop">
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileChange}
-                style={{ display: 'none' }}
-                id="fileInput"
-              />
-              <GoPaperclip
-                onClick={() => fileInputRef.current.click()}
-                className="attachmentIcon"
-              />
-            </TaskOptions>
-          )}
+          {eventState.taskOption === '4' && <></>}
         </TaskOption>
 
         <TaskOption field="Tags" number="5">
@@ -139,17 +116,17 @@ const TaskForm = () => {
 
         <TaskOption dateRef={datePick} field="Due Date" number="6">
           <div className="datePicker">
-          <DatePicker
-          ref={datePick}
-          selected={taskState.task.dueDate}
-          onChange={(date) =>
-            taskDispatch({ type: 'SELECT_DATE', payload: date })
-          }
-        />
+            <DatePicker
+              ref={datePick}
+              selected={taskState.task.dueDate}
+              onChange={(date) =>
+                taskDispatch({ type: 'SELECT_DATE', payload: date })
+              }
+            />
           </div>
         </TaskOption>
-        <AttachmentsDisplay/>
 
+        <AttachmentsDisplay />
       </div>
 
       <Button text="Create" action={handleTaskCreation} />

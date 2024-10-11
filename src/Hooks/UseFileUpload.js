@@ -60,7 +60,7 @@ const useFileUpload = (options = {}) => {
           updateCollection('users', downloadURL, state.currentUser.uid);
           file.type === 'application/pdf' &&
             updateCollection('tasks', downloadURL, taskState.task.id);
-          console.log(downloadURL);
+          
         });
       }
     );
@@ -70,7 +70,7 @@ const useFileUpload = (options = {}) => {
     (event) => {
       const selectedFile = event.target.files[0];
       selectedRef.current = selectedFile;
-      console.log(selectedFile.type);
+      
 
       if (selectedFile) {
         // Check file size

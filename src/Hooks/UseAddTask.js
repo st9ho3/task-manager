@@ -2,9 +2,11 @@ import { useContext } from 'react';
 import { taskContext } from '../Context/TaskContext';
 import { doc, setDoc } from "firebase/firestore";
 import { storage, db } from "../utils/Firebase";
+import { fileUploadContext } from '../Context/FileUploadContext';
 
 const useAddTask = () => {
   const { taskState, taskDispatch } = useContext(taskContext);
+  const {fileState, uploadDispatch} = useContext(fileUploadContext)
 
   const handleTaskCreation = async () => {
     try {
@@ -13,6 +15,7 @@ const useAddTask = () => {
         ...taskState.task,
       });
       taskDispatch({type:'RESET_FORM'})
+      uploadDispatch({type:'RESET_FILE_STATE'})
     } catch (error) {
       console.error(error); // Use console.error for errors
     }
