@@ -6,7 +6,7 @@ import { authContext } from '../../Context/AuthContext';
 import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { storage, db } from "../../utils/Firebase";
 
-const Tag = ({ name }) => {
+const Tag = ({ name,type }) => {
   const { state, authDispatch } = useContext(authContext);
   const { taskState, taskDispatch } = useContext(taskContext);
   const style = getHashtagStyle(name);
@@ -18,28 +18,36 @@ const Tag = ({ name }) => {
     authDispatch({ type: 'REMOVE_TEMP_TAG', payload: newTags });
   };
   
-  const handleClick = (id) => {
-    if (!taskState.task.tags.includes(id)) {
-      taskDispatch({ type: 'ADD_VALUE', field: 'tags', payload: id });
-    } else {
-      const newArray = taskState.task.tags.filter((tag) => tag !== id);
-      taskDispatch({ type: 'REMOVE_VALUE', field: 'tags', payload: newArray });
-    }
-  };
+  
+     const handleClick = (id) => {
+     if (type === 'taskForm') {
+      if (!taskState.task.tags.includes(id)) {
+        taskDispatch({ type: 'ADD_VALUE', field: 'tags', payload: id });
+      } else {
+        const newArray = taskState.task.tags.filter((tag) => tag !== id);
+        taskDispatch({ type: 'REMOVE_VALUE', field: 'tags', payload: newArray });
+      }
+     } else {
+      console.log("Only for reading.")
+     }
+    
+  }
 
   return (
     <div
-      className={taskState.task.tags.includes(name) ? "tagActive" : "tag"}
+      className={type === 'taskForm' ?
+        taskState.task.tags.includes(name) ? "tagActive" : 'tag' : 'tagForDisplay'}
       style={style}
       onClick={() => handleClick(name)}
     >
       {name}
-      <IoClose
+      {type === 'taskForm' && <IoClose
         onClick={(e) => deleteTag(name, e)}
         className="closeTagButton"
-      />
+      />}
     </div>
   );
 };
 
 export default Tag;
+

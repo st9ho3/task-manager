@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { eventContext } from '../../Context/EventContext';
 
-const TaskOptions = ({ children, type }) => {
+const TaskOptions = ({ children, type, quantity }) => {
   const { eventDispatch } = useContext(eventContext);
   const windowRef = useRef(null);
 
@@ -28,8 +28,9 @@ const TaskOptions = ({ children, type }) => {
           : type === 'CandyShop'
             ? 'optionCandyShop' 
             : type === 'store'
+              && quantity < 5 
               ? 'optionStoreSmall'
-              : null
+              : 'optionStoreBig'
 
       }
     >

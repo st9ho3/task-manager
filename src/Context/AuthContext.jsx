@@ -28,7 +28,6 @@ export const authContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [state, authDispatch] = useReducer(authReducer, INITIAL_STATE);
-  
   useEffect(() => {
     localStorage.setItem('auth', JSON.stringify(state.currentUser));
     const fetchUsers = async () => {

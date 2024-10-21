@@ -89,6 +89,11 @@ export const taskReducer = (state, action) => {
         ...state,
         newTag: INITIAL_STATE.newTag,
       };
+    case 'GET_TASKS':
+      return {
+        ...state,
+        tasks: action.payload
+      };
     default:
       return state;
   }

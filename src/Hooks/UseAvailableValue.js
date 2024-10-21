@@ -37,7 +37,6 @@ const useAvailableValue = () => {
     };
 
     if (state.tempTagsStore.length !== state.userDetails.tagsStore.length) {
-      console.log(state.tempTagsStore.length > state.userDetails.tagsStore.length);
       updateTagsOntagsStore();
     }
   }, [eventState.taskOption]);

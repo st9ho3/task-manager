@@ -23,6 +23,9 @@ import Tag from "../Components/TaskForm/Tag"
 import AddTaskButton from "../Components/TaskForm/AddTaskButton"
 import Button from "../Components/General/Button"
 import AttachmentsDisplay from "../Components/TaskForm/AttachmentsDisplay"
+import TaskItemTop from "../Components/Layout/Main/TaskBoard/TaskList/TaskItem/TaskItemTop"
+import TaskItemMid from "../Components/Layout/Main/TaskBoard/TaskList/TaskItem/TaskItemMid"
+import TaskItemBot from "../Components/Layout/Main/TaskBoard/TaskList/TaskItem/TaskItemBot"
 
 export {
     Navbar,
@@ -49,5 +52,10 @@ export {
     Tag,
     AddTaskButton,
     Button,
-    AttachmentsDisplay
+    AttachmentsDisplay,
+    TaskItemTop,
+    TaskItemMid,
+    TaskItemBot
+    
+    
 }

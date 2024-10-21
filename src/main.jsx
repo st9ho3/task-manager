@@ -26,20 +26,22 @@ import './Components/TaskForm/TagsOption.css'
 import './Components/TaskForm/Tag.css'
 import './Components/TaskForm/DatePicker.css'
 import './Components/TaskForm/AttachmentsDisplay.css'
+import './Components/Layout/Main/TaskBoard/TaskList/TaskItem/TaskItem.css'
+
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <TaskContextProvider>
-    <EventProvider>
-      <FileUploadProvider>
-        <RouteContextProvider>
-          <AuthContextProvider> 
-            <App />
-          </AuthContextProvider>
-        </RouteContextProvider>
-      </FileUploadProvider>
-    </EventProvider>
-  </TaskContextProvider>
+    <AuthContextProvider>
+      <TaskContextProvider>
+      <EventProvider>
+        <FileUploadProvider>
+          <RouteContextProvider>
+              <App />
+          </RouteContextProvider>
+        </FileUploadProvider>
+      </EventProvider>
+    </TaskContextProvider>
+  </AuthContextProvider>
   </StrictMode>,
 );

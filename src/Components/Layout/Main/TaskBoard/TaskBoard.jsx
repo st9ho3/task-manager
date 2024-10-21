@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { authContext, INITIAL_STATE } from '../../../../Context/AuthContext';
 import { routeContext } from '../../../../Context/RouteContext';
 import { fileUploadContext } from '../../../../Context/FileUploadContext';
-import {TaskForm, PopUpWindow} from '../../../../Constants/Components'
+import {TaskForm, PopUpWindow, TaskItem} from '../../../../Constants/Components'
 import { eventContext } from '../../../../Context/EventContext';
 import { taskContext } from '../../../../Context/TaskContext';
 
@@ -38,9 +38,10 @@ const TaskBoard = () => {
   
 
   return (
-    <div>
+    <div className='taskBoard'>
       <PopUpWindow type='signout' action={SignOut} />
       {routeState.currentForm === 'taskForm' && <TaskForm />}
+      <TaskItem/>
     </div>
   );
 };

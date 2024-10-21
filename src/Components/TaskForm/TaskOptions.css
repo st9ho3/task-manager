@@ -39,9 +39,10 @@
     box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08), 0 2px 1.25px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
+    padding-top: 2rem;
     margin: 2rem;
-    width: 20.5rem;
-    height: 14.5rem;
+    width: 22.5rem;
+    height: 15.5rem;
     border: solid thin rgb(240, 239, 239);
     display: flex;
     align-items: center;

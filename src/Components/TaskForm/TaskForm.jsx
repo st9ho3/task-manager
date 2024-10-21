@@ -69,7 +69,7 @@ const TaskForm = () => {
 
         <TaskOption field="Assignees" number="2">
           {eventState.taskOption === '2' && (
-            <TaskOptions type="store">
+            <TaskOptions type="store" quantity={state.users.length}>
               <AssigneeOption />
             </TaskOptions>
           )}
@@ -101,7 +101,7 @@ const TaskForm = () => {
               />
               <TagsOption>
                 {state.tempTagsStore.map((tag) => (
-                  <Tag key={tag} name={tag} />
+                  <Tag key={tag} name={tag} type='taskForm' />
                 ))}
               </TagsOption>
               <div

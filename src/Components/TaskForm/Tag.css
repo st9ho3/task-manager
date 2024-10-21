@@ -44,3 +44,19 @@
     color: rgb(155, 118, 154);
     font-size: 0.9rem;
 }
+.tagForDisplay {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem;
+    width: fit-content;
+    padding: .65rem;
+    height: 1rem;
+    background-color: rgb(255, 233, 251);
+    border-radius: 25px;
+    border: solid thin rgb(255, 190, 241);
+    color: rgb(157, 20, 124);
+    font-size: .7rem; 
+    transition: .3s;
+}
