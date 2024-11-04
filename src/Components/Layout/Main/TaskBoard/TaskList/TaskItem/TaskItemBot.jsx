@@ -9,7 +9,7 @@ const TaskItemBot = () => {
   const taskIds = taskState.tasks.assignees
 
   const [x, setX] = useState([])
-//Working on the faces. Fetching users
+//Working on the faces. Fetching 
   /* useEffect(() => {
     if (taskState.tasks.length > 0) {
       const getUsers = () => {
