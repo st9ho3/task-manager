@@ -14,4 +14,6 @@
     width: 100%;
     height: 100%;
     border: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
   }

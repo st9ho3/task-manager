@@ -1,13 +1,13 @@
 import React from 'react'
 
-const TaskItemTop = () => {
+const TaskItemTop = ({task}) => {
   return (
     <div className="taskItemtop">
         <p className="taskItemTitle">
-          This is the title
+          {task.title}
         </p>
         <p className="taskItemCreationDate">
-            02/24
+            {task.createdAt}
         </p>
         </div>
   )

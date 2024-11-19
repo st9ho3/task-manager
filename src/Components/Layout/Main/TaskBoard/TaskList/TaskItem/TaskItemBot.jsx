@@ -3,28 +3,19 @@ import { Tag } from '../../../../../../Constants/Components'
 import { authContext } from '../../../../../../Context/AuthContext'
 import { taskContext } from '../../../../../../Context/TaskContext'
 
-const TaskItemBot = () => {
+const TaskItemBot = ({task}) => {
   const { state } = useContext(authContext)
   const { taskState } = useContext(taskContext)
-  const taskIds = taskState.tasks.assignees
-
-  const [x, setX] = useState([])
-//Working on the faces. Fetching data and users
-  /* useEffect(() => {
-    if (taskState.tasks.length > 0) {
-      const getUsers = () => {
-        if (taskIds.length > 0) {
-          return taskIds
-            .map((taskId) => state.users.find((user) => user.id === taskId))
-            .filter(Boolean)  // filter out undefined values
-        }
-        return []
-      }
-      console.log(getUsers())
-      setX(getUsers())
-    }
-  }, [taskState.tasks, taskIds, state.users]) */
-
+  
+  const [faces,setFaces] = useState([])
+  const getFaces = () => {
+    return task.assignees.map((assignee) => {
+      return state.users.find((user)=> user.id === assignee)
+    })
+  }
+  useEffect(() => {
+    setFaces(getFaces())
+  },[])
   
 
   return (
@@ -35,8 +26,8 @@ const TaskItemBot = () => {
       </div>
 
       <div className="taskItemPeople">
-        {x.length > 0 &&
-          x.map((user) => (
+        {task.assignees.length > 0 &&
+          faces.map((user) => (
             <img
               className='taskItemPerson'
               key={user.id}
@@ -45,7 +36,7 @@ const TaskItemBot = () => {
             />
           ))
         }
-        {x.length > 5 && (
+        {task.assignees.length > 4 && (
           <div className="morePeople">5+</div>
         )}
       </div>

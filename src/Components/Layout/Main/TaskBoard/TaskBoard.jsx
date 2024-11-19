@@ -41,7 +41,10 @@ const TaskBoard = () => {
     <div className='taskBoard'>
       <PopUpWindow type='signout' action={SignOut} />
       {routeState.currentForm === 'taskForm' && <TaskForm />}
-      <TaskItem/>
+      {taskState.tasks.map((task) => 
+      <TaskItem
+         key= {task.id}
+         task={task}/> )}
     </div>
   );
 };

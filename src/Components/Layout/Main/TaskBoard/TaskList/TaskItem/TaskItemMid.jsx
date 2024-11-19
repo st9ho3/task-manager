@@ -1,10 +1,10 @@
 import React from 'react'
 
-const TaskItemMid = () => {
+const TaskItemMid = ({task}) => {
   return (
     <div>
        <p className="taskitemDesc">
-            This is the description. This is the description.This is the description.This is the description.taskitemDesc.ahjsdh...
+        {task.description}
           </p>
           <hr className='taskItemBorder' />
     </div>
