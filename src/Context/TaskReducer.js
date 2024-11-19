@@ -75,8 +75,7 @@ export const taskReducer = (state, action) => {
       return {
         ...state,
         task: {
-          ...INITIAL_STATE.task,
-        id:action.payload}
+          ...INITIAL_STATE.task}
           
       };
       case 'SET_TAG':

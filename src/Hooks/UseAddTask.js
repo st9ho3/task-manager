@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext,useRef } from 'react';
 import { taskContext } from '../Context/TaskContext';
 import { doc, setDoc } from "firebase/firestore";
 import { storage, db } from "../utils/Firebase";
@@ -20,7 +20,8 @@ const useAddTask = () => {
       console.error(error); // Use console.error for errors
     }
   };
-
+  
+  console.log()
   return {
     handleTaskCreation,
   };
