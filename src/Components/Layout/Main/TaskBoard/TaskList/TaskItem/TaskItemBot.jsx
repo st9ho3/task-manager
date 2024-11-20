@@ -21,8 +21,9 @@ const TaskItemBot = ({task}) => {
   return (
     <div className='taskItemBottom'>
       <div className="taskItemTags">
-        <Tag name='cat' />
-        <Tag name='study' />
+        {task.tags.map((tag)=> 
+          <Tag name={tag} />
+        )}
       </div>
 
       <div className="taskItemPeople">
